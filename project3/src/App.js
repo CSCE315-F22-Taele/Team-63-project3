@@ -29,7 +29,7 @@ function App() {
     });
   }
 
-  const pushsupply = () =>{
+  const pushSupply = () =>{
     axios.post("http://localhost:5000/insertsupply",{
       supplyItem:11232,
       foodId:3,
@@ -46,7 +46,12 @@ function App() {
       Click me
     </button><button onClick={pushFood}>
         Testing the function
-      </button></>
+      </button>
+      <button onClick={pushSupply}>
+        Test the pushSupply
+      </button>
+      
+      </>
   );
   
 }

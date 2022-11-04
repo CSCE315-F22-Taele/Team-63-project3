@@ -39,6 +39,7 @@ app.get("/food", async(req,res)=>{
     res.end;
 });
 
+
 app.post("/insertfood", async(req,res)=>{
     console.log("It is in");
     const foodId = req.body.foodId;
@@ -71,7 +72,7 @@ app.post("/insertorder", async(req,res)=>{
     const amount = req.body.amount;
 
     pool.query(
-        "INSERT INTO \"order\" (orderid, foodid, quantity, orderdate, amount) VALUES(?,?,?,?,?);",
+        "INSERT INTO \"order\" (orderid, foodid, quantity, orderdate, amount) VALUES("+orderId+","+foodId+","+quantity+",'"+orderdate+"',"+amount+");",
         [orderId,foodId,quantity,orderdate,amount],
         (err,result) =>{
             if (err){
@@ -84,14 +85,14 @@ app.post("/insertorder", async(req,res)=>{
     );
 });
 
+
 app.post("/insertsupply", async(req,res)=>{
     const supplyItem = req.body.foodId;
     const supplyQuantity = req.body.quantity;
     const orderdate = req.body.orderdate;
 
     pool.query(
-        "alter table \"supply\" add ? int;",
-        [supplyItem],
+        "alter table \"supply\" add '"+supplyItem+"' int;",
         (err,result) =>{
             if (err){
                 console.log(err)
@@ -103,8 +104,7 @@ app.post("/insertsupply", async(req,res)=>{
     );
 
     pool.query(
-        "update ? set ? = ? where date>=?;",
-        [supply,supplyItem,supplyQuantity,orderdate],
+        "update \"supply\" set '"+supplyItem+"' = "+supplyQuantity+" where date>='"+orderdate+"';",
         (err,result) =>{
             if (err){
                 console.log(err)
@@ -115,6 +115,8 @@ app.post("/insertsupply", async(req,res)=>{
         }
     )
 });
+
+
 
 
 

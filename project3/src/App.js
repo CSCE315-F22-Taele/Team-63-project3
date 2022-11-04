@@ -13,17 +13,42 @@ function App() {
     axios.get("http://localhost:5000/order").then((result)=>{
       console.log(result);
     });
-}
+    }
 
   // const postData = async() => {
   //   axios.post('http://localhost:5000/food')
   // }
+  const pushFood = () =>{
+    axios.post("http://localhost:5000/insertfood",{
+      foodId: 69,
+      foodItem: 'Tokyo Revenger',
+      price: 69.69,
+      supply: 'chicken',
+    }).then(() =>{
+      console.log("Success");
+    });
+  }
+
+  const pushsupply = () =>{
+    axios.post("http://localhost:5000/insertsupply",{
+      supplyItem:11232,
+      foodId:3,
+      quantity:4,
+      orderdate: 2022-10-31,
+      amount: 50,
+    }).then(()=>{
+
+    })
+  }
 
   return (
-    <button onClick={getData}>
+    <><button onClick={getData}>
       Click me
-    </button>
+    </button><button onClick={pushFood}>
+        Testing the function
+      </button></>
   );
+  
 }
 
 export default App;

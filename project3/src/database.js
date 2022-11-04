@@ -39,15 +39,19 @@ app.get("/food", async(req,res)=>{
     res.end;
 });
 
-app.post("/food", async(req,res)=>{
+app.post("/insertfood", async(req,res)=>{
+    console.log("It is in");
     const foodId = req.body.foodId;
     const foodItem = req.body.foodItem;
     const price = req.body.price;
     const supply = req.body.supply;
 
+
     pool.query(
-        "INSERT INTO \"food\" (foodid, fooditem, price, supplies) VALUES(?,?,?,?);",
-        [foodId,foodItem,price,supply],
+        "INSERT INTO \"food\" (foodid, fooditem, price, supplies) VALUES("+foodId+", '"+foodItem+"',"+price+", '"+supply+"');",
+        // [foodId,foodItem,price,supply],
+        console.log("INSERT INTO \"food\" (foodid, fooditem, price, supplies) VALUES(?,?,?,?);",
+        [foodId,foodItem,price,supply],),
         (err,result) =>{
             if (err){
                 console.log(err)
@@ -59,7 +63,7 @@ app.post("/food", async(req,res)=>{
     );
 });
 
-app.post("/order", async(req,res)=>{
+app.post("/insertorder", async(req,res)=>{
     const orderId = req.body.orderId;
     const foodId = req.body.foodId;
     const quantity = req.body.quantity;
@@ -80,15 +84,14 @@ app.post("/order", async(req,res)=>{
     );
 });
 
-app.post("/supply", async(req,res)=>{
-    const supply = req.body.supply;
+app.post("/insertsupply", async(req,res)=>{
     const supplyItem = req.body.foodId;
     const supplyQuantity = req.body.quantity;
     const orderdate = req.body.orderdate;
 
     pool.query(
-        "alter table ? add ? int;",
-        [supply,supplyItem],
+        "alter table \"supply\" add ? int;",
+        [supplyItem],
         (err,result) =>{
             if (err){
                 console.log(err)
@@ -112,6 +115,8 @@ app.post("/supply", async(req,res)=>{
         }
     )
 });
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

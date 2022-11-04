@@ -34,10 +34,10 @@ function App() {
       orderId:11232,
       foodId:3,
       quantity:4,
-      orderdate: 2022-10-31,
+      orderdate: "2022-10-31",
       amount: 50,
     }).then(()=>{
-
+      console.log("Success");
     })
   }
 

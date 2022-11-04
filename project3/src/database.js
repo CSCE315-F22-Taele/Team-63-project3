@@ -70,10 +70,9 @@ app.post("/insertorder", async(req,res)=>{
     const quantity = req.body.quantity;
     const orderdate = req.body.orderdate;
     const amount = req.body.amount;
-
+    console.log("INSERT INTO \"order\" (orderid, foodid, quantity, orderdate, amount) VALUES("+orderId+","+foodId+","+quantity+",'"+orderdate+"',"+amount+");");
     pool.query(
         "INSERT INTO \"order\" (orderid, foodid, quantity, orderdate, amount) VALUES("+orderId+","+foodId+","+quantity+",'"+orderdate+"',"+amount+");",
-        [orderId,foodId,quantity,orderdate,amount],
         (err,result) =>{
             if (err){
                 console.log(err)

@@ -19,14 +19,39 @@ app.use(cors());
 app.use(express.json());
 
 //figure out a way
-app.get('/user', async (req, res) => {
-  teammembers = []
-  const team = await pool.query('SELECT * FROM teammembers;');
-  res.json(team.rows);
-  res.end();
+app.get('/supply', async (req, res) => {
+    const team = await pool.query('select * FROM \"supply\";');
+    res.json(team.rows);
+    res.end();
+  
+});
 
-      
+
+app.get('/order', async(req,res)=>{
+    const data = await pool.query("select * from \"order\";");
+    res.json(data.rows);
+    res.end()
 });
+
+app.get("/food", async(req,res)=>{
+    const data = await pool.query("select* from \"food\";");
+    res.json(data.rows);
+    res.end;
+});
+
+// app.post("/food", async(req,res)=>{
+
+// });
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Example app listening at http://localhost:${port}`);
 });
+
+
+
+
+
+
+
+
+
+

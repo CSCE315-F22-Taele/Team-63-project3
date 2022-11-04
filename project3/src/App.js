@@ -29,9 +29,9 @@ function App() {
     });
   }
 
-  const pushSupply = () =>{
-    axios.post("http://localhost:5000/insertsupply",{
-      supplyItem:11232,
+  const pushOrder = () =>{
+    axios.post("http://localhost:5000/insertorder",{
+      orderId:11232,
       foodId:3,
       quantity:4,
       orderdate: 2022-10-31,
@@ -47,7 +47,7 @@ function App() {
     </button><button onClick={pushFood}>
         Testing the function
       </button>
-      <button onClick={pushSupply}>
+      <button onClick={pushOrder}>
         Test the pushSupply
       </button>
       

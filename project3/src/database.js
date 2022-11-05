@@ -47,7 +47,6 @@ app.post("/insertfood", async(req,res)=>{
     const price = req.body.price;
     const supply = req.body.supply;
 
-
     pool.query(
         "INSERT INTO \"food\" (foodid, fooditem, price, supplies) VALUES("+foodId+", '"+foodItem+"',"+price+", '"+supply+"');",
         // [foodId,foodItem,price,supply],
@@ -59,6 +58,25 @@ app.post("/insertfood", async(req,res)=>{
             }
             else{
                 res.send("Value inserted in food database")
+            }
+        }
+    );
+});
+
+app.post("/updatefood",async(req,res)=>{
+    const foodId = req.body.foodId;
+    const foodItem = req.body.foodItem;
+    const price = req.body.price
+
+    pool.query(
+        "UPDATE \"food\" SET fooditem=\'"+foodItem+"\',price="+price+" WHERE foodid="+foodId+";",
+        (err,result) =>{
+            if (err) {
+                console.log("that rat can cook fr!");
+                console.log("UPDATE \"food\" SET fooditem=\'"+foodItem+"\',price="+price+" WHERE foodid="+foodId+";");
+                console.log(err);
+            } else {
+                res.send("Food table has successfully been updated with the new item!");
             }
         }
     );
@@ -86,14 +104,14 @@ app.post("/insertorder", async(req,res)=>{
 
 
 app.post("/insertsupply", async(req,res)=>{
-    const supplyItem = req.body.foodId;
-    const supplyQuantity = req.body.quantity;
-    const orderdate = req.body.orderdate;
+    const supplyItem = req.body.supplyItem;
+    
 
     pool.query(
-        "alter table \"supply\" add '"+supplyItem+"' int;",
+        "alter table \"supply\" add \""+supplyItem+"\" int;",
         (err,result) =>{
             if (err){
+                console.log("pool hopping");
                 console.log(err)
             }
             else{
@@ -102,10 +120,19 @@ app.post("/insertsupply", async(req,res)=>{
         }
     );
 
+    
+});
+
+app.post("/newsupply",async(req,res)=>{
+    const supplyItem = req.body.supplyItem;
+    const supplyQuantity = req.body.quantity;
+    const orderdate = req.body.orderdate;
     pool.query(
-        "update \"supply\" set '"+supplyItem+"' = "+supplyQuantity+" where date>='"+orderdate+"';",
+        "update \"supply\" set \""+supplyItem+"\" = "+supplyQuantity+" where date>='"+orderdate+"';",
         (err,result) =>{
             if (err){
+                console.log("window shopping");
+                console.log("update \"supply\" set "+supplyItem+" = "+supplyQuantity+" where date>='"+orderdate+"';");
                 console.log(err)
             }
             else{

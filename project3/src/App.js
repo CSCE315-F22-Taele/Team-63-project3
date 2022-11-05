@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 function App() {
-  const getData = async () => {
+    const getData = async () => {
     axios.get("http://localhost:5000/supply").then((result) => {
       console.log(result);
     });
@@ -13,11 +13,12 @@ function App() {
     axios.get("http://localhost:5000/order").then((result)=>{
       console.log(result);
     });
-    }
+  }
 
   // const postData = async() => {
   //   axios.post('http://localhost:5000/food')
   // }
+  /*
   const pushFood = () =>{
     axios.post("http://localhost:5000/insertfood",{
       foodId: 69,
@@ -40,18 +41,6 @@ function App() {
     });
   }
 
-  const pushOrder = () =>{
-    axios.post("http://localhost:5000/insertorder",{
-      orderId:11232,
-      foodId:3,
-      quantity:4,
-      orderdate: "2022-10-31",
-      amount: 50,
-    }).then(()=>{
-      console.log("Success");
-    })
-  }
-
   const pushSupply = () =>{
     axios.post("http://localhost:5000/insertsupply",{
       supplyItem: "deeznuts",
@@ -69,28 +58,52 @@ function App() {
       console.log("Success");
     })
   }
+*/
+
+  const pushOrder = (orderId, foodId, quantity, orderdate, amount) =>{
+    axios.post("http://localhost:5000/insertorder",{
+      orderId: orderId,
+      foodId: foodId,
+      quantity: quantity,
+      orderdate: orderdate,
+      amount: amount,
+    }).then(()=>{
+      console.log("Success");
+    })
+  }
+
 
   return (
-    <><button onClick={getData}>
-      Click me
-    </button><button onClick={pushFood}>
-        Testing the function
-      </button>
-      <button onClick={pushOrder}>
-        Test the orderSupply
-      </button>
-      <button onClick={pushSupply}>
-        Deez Nuts
-      </button>
-      <button onClick={pushNewSupply}>
-        insert data for deeznuts
-      </button>
-      <button onClick={updateFood}>
-        and it keeps coming and it keeps coming til the day it stops
-      </button>
-      </>
+    <>
+      <button onClick={getData}>Click me</button>
+      
+      <button onClick={() => {pushOrder(0, 1, 1, "2022-11-01", 4.29)}}>Chicken Sandwich</button>
+      <button onClick={() => {pushOrder(0, 1, 1, "2022-11-01", 4.99)}}>Chic-Fil-A Deluxe</button>
+      <button>Spicy Chicken Sandwich</button>
+      <button>Spicy Deluxe</button>
+      <button>Grilled Chicken Sandwich</button>
+      <button>Nuggets 8 pc</button>
+      <button>Nuggets 12 pc</button>
+      <button>Grilled Nuggets 8 pc</button>
+      <button>Grilled Nuggets 12 pc</button>
+      <button>Grilled Chicken Club</button>
+      <button>Grilled Chicken Cool Wrap</button>
+      <button>Cobb Salad</button>
+      <button>Market Salad</button>
+      <button>Spicy Southwest Salad</button>
+      <button>Lemonade</button>
+      <button>Iced Tea</button>
+      <button>Cookie</button>
+      <button>Chocolate Chip Brownie</button>
+      <button>Milkshake</button>
+      <button>Frosted Coffee</button>
+      <button>Fries</button>
+
+      <div class="receipt">
+        <p class="receipt-header">Receipt</p>
+      </div>
+    </>    
   );
-  
 }
 
 export default App;

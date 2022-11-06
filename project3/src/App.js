@@ -1,20 +1,32 @@
 import axios from 'axios';
+import React, {Component} from 'react';
+
 
 function App() {
+    var foodData = [];
+    var orderData = [];
+    var supplyData = [];
     const getData = async () => {
-    axios.get("http://localhost:5000/supply").then((result) => {
-      console.log(result);
-    });
+      axios.get("http://localhost:5000/supply").then((result) => {
+        foodData = result;
+        console.log(foodData);
+      });
 
-    axios.get("http://localhost:5000/food").then((result) =>{
-      console.log(result);
-    });
+      axios.get("http://localhost:5000/food").then((result) =>{
+        orderData = result;
+        console.log(orderData);
+      });
 
-    axios.get("http://localhost:5000/order").then((result)=>{
-      console.log(result);
-    });
-  }
-
+      axios.get("http://localhost:5000/order").then((result)=>{
+        supplyData = result;
+        console.log(supplyData);
+      });
+    }
+    //function updatefood{
+      // pushFood(asdfasdfasfsadfasf);
+      // foodData.push({foodId:51,sdfasdf:322})
+    // }
+    
   // const postData = async() => {
   //   axios.post('http://localhost:5000/food')
   // }
@@ -72,38 +84,52 @@ function App() {
     })
   }
 
+  // var buildOrderStr = ""
+  // buildOrderStr += 
+  const getItem = () => {
+    customOrderList.push("chicken 1 4.99");
+    console.log(customOrderList)
+  }
+  const orderRecipt = (ordernum,foodid,quantity,date,price) =>{
+    pushOrder(ordernum,foodid,quantity,date,price);
+    getItem();
+  }
+  var customOrderList = [];
+  
+    return (
+      <>
+        <button onClick={getData}>Click me</button>
+        
+        <button onClick={() => {orderRecipt(0, 1, 1, "2022-11-01", 4.29)}}>Chicken Sandwich</button>
+        <button onClick={() => {pushOrder(0, 1, 1, "2022-11-01", 4.99)}}>Chic-Fil-A Deluxe</button>
+        <button>Spicy Chicken Sandwich</button>
+        <button>Spicy Deluxe</button>
+        <button>Grilled Chicken Sandwich</button>
+        <button>Nuggets 8 pc</button>
+        <button>Nuggets 12 pc</button>
+        <button>Grilled Nuggets 8 pc</button>
+        <button>Grilled Nuggets 12 pc</button>
+        <button>Grilled Chicken Club</button>
+        <button>Grilled Chicken Cool Wrap</button>
+        <button>Cobb Salad</button>
+        <button>Market Salad</button>
+        <button>Spicy Southwest Salad</button>
+        <button>Lemonade</button>
+        <button>Iced Tea</button>
+        <button>Cookie</button>
+        <button>Chocolate Chip Brownie</button>
+        <button>Milkshake</button>
+        <button>Frosted Coffee</button>
+        <button>Fries</button>
 
-  return (
-    <>
-      <button onClick={getData}>Click me</button>
-      
-      <button onClick={() => {pushOrder(0, 1, 1, "2022-11-01", 4.29)}}>Chicken Sandwich</button>
-      <button onClick={() => {pushOrder(0, 1, 1, "2022-11-01", 4.99)}}>Chic-Fil-A Deluxe</button>
-      <button>Spicy Chicken Sandwich</button>
-      <button>Spicy Deluxe</button>
-      <button>Grilled Chicken Sandwich</button>
-      <button>Nuggets 8 pc</button>
-      <button>Nuggets 12 pc</button>
-      <button>Grilled Nuggets 8 pc</button>
-      <button>Grilled Nuggets 12 pc</button>
-      <button>Grilled Chicken Club</button>
-      <button>Grilled Chicken Cool Wrap</button>
-      <button>Cobb Salad</button>
-      <button>Market Salad</button>
-      <button>Spicy Southwest Salad</button>
-      <button>Lemonade</button>
-      <button>Iced Tea</button>
-      <button>Cookie</button>
-      <button>Chocolate Chip Brownie</button>
-      <button>Milkshake</button>
-      <button>Frosted Coffee</button>
-      <button>Fries</button>
+        
+        <div class="receipt">
+          <p class="receipt-header">Receipt</p>
+          {customOrderList.map(txt => <p>{txt}</p>)}
+        </div>
+      </>    
+    );
 
-      <div class="receipt">
-        <p class="receipt-header">Receipt</p>
-      </div>
-    </>    
-  );
 }
 
 export default App;

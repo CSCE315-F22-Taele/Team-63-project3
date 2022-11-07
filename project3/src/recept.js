@@ -7,7 +7,13 @@ const Receipt = () =>{
   const [listOfBts, setListOfBits] = useState([])
   const [price, setPrice] = useState(0)
   const [orderId, setOrderId] = useState(420);
-  let orderdt = "2022-08-22";
+  var today = new Date();
+  var day = String(today.getDate()).padStart(2, '0');
+  var month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var year = today.getFullYear();
+
+  var orderdt = year + '-' + month + '-' + day;
+  console.log(orderdt)
   
   useEffect(() => {
     const callApi = async () =>{

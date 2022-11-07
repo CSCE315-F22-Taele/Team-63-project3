@@ -1,0 +1,14 @@
+.button1 {
+	background-color: #4CAF50;
+} /* Green */
+
+.button2 {
+	background-color: #008CBA;
+} /* Blue */
+
+.textarea {
+	background-color: #ba5700;
+	width: 500px;
+	height: 200px; 
+
+}

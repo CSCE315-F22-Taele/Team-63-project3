@@ -1,28 +1,67 @@
 import axios from 'axios';
+import React, {useEffect, useRef} from 'react'
+import {useState} from 'react';
+import './App.css';
+import Receipt from './recept';
 
 function App() {
-  const getData = async () => {
-    axios.get("http://localhost:5000/supply").then((result) => {
-      console.log(result);
-    });
+   
+      // const handleChange = event => {
+      //   setMessage(message.push(event.target.value));
+      // };
 
-    axios.get("http://localhost:5000/food").then((result) =>{
-      console.log(result);
-    });
+      // const chickButtonClicked = event => {
+      //   //event.preventDefault();id.name
+      //   setMessage(message + '\n' + event.target.id + " 1 " + "$4.29");
+      // };
 
-    axios.get("http://localhost:5000/order").then((result)=>{
-      console.log(result);
-    });
-}
+      // const deluxeButtonClicked = event => {
+      //   //event.preventDefault();
+        
+      //   setMessage(message + '\n' + event.target.id + " 1 " + "$4.99");
+      // };
+    //function updatefood{
+      // pushFood(asdfasdfasfsadfasf);
+      // foodData.push({foodId:51,sdfasdf:322})
+    // }
+    
+  
 
-  // const postData = async() => {
-  //   axios.post('http://localhost:5000/food')
+  // const pushOrder = (orderId, foodId, quantity, orderdate, amount) =>{
+  //   axios.post("http://localhost:5000/insertorder",{
+  //     orderId: orderId,
+  //     foodId: foodId,
+  //     quantity: quantity,
+  //     orderdate: orderdate,
+  //     amount: amount,
+  //   }).then(()=>{
+  //     console.log("Success");
+  //   })
   // }
 
+ 
+  // const getItem = () => {
+  //   customOrderList.push("chicken 1 4.99");
+  //   console.log(customOrderList)
+  // }
+  // const orderRecipt = (ordernum,foodid,quantity,date,price) =>{
+  //   pushOrder(ordernum,foodid,quantity,date,price);
+  //   getItem();
+  // }
+  // {customOrderList.map(txt => <p>{txt}</p>)}
+  // var customOrderList = [];
+//<input type="textarea" class="textarea" rows={5} cols={5} readOnly={true} id="message" name="message" onChange={handleChange} value={message}/>
+
+
   return (
-    <button onClick={getData}>
-      Click me
-    </button>
+    <><head>
+      <logo></logo>
+      <h1>Chic-Fil-A</h1>
+    </head><body>
+        <div>
+          <Receipt></Receipt>
+        </div>
+      </body></>
   );
 }
 

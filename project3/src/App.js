@@ -54,14 +54,13 @@ function App() {
 
 
   return (
-    <><head>
-      <logo></logo>
-      <h1>Chic-Fil-A</h1>
-    </head><body>
-        <div>
-          <Receipt></Receipt>
-        </div>
-      </body></>
+    <>
+    
+    <body>
+        <h1>Welcome to Chick-Fil-A</h1>
+        <Receipt></Receipt>
+      </body>
+      </>
   );
 }
 

@@ -7,7 +7,13 @@ const Receipt = () =>{
   const [listOfBts, setListOfBits] = useState([])
   const [price, setPrice] = useState(0)
   const [orderId, setOrderId] = useState(420);
-  let orderdt = "2022-08-22";
+  var today = new Date();
+  var day = String(today.getDate()).padStart(2, '0');
+  var month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var year = today.getFullYear();
+
+  var orderdt = year + '-' + month + '-' + day;
+  console.log(orderdt)
   
   useEffect(() => {
     const callApi = async () =>{
@@ -47,29 +53,29 @@ const Receipt = () =>{
       return <li key = {item.fooditem}>{item.fooditem}: {item.price}</li>
   })
 
-  // const pushOrder = (orderId, foodId, quantity, orderdate, amount) =>{
-  //   axios.post("http://localhost:5000/insertorder",{
-  //     orderId: orderId,
-  //     foodId: foodId,
-  //     quantity: quantity,
-  //     orderdate: orderdate,
-  //     amount: amount,
-  //   }).then(()=>{
-  //     console.log("Success");
+  const pushOrder = (orderId, foodId, quantity, orderdate, amount) =>{
+    axios.post("http://localhost:5000/insertorder",{
+      orderId: orderId,
+      foodId: foodId,
+      quantity: quantity,
+      orderdate: orderdate,
+      amount: amount,
+    }).then(()=>{
+      console.log("Success");
       
-  //   })
-  // }
+    })
+  }
 
-  // const ordering = () =>{
-  //   for(var i = 0; i < message.length; ++i){
-  //     console.log(orderId,message.foodid,1,orderId,1);
-  //     // pushOrder(orderId,message.foodid,1,orderdt,1);
-  //   }
-  //   // setOrderId(orderId + 1);
-  //   setMessage([])
-  //   setPrice(0)
-  //   return
-  // }
+  const ordering = () =>{
+    for(var i = 0; i < message.length; ++i){
+      console.log(orderId,message[i].foodid,1,orderId,1);
+      pushOrder(orderId,message[i].foodid,1,orderdt,1);
+    }
+    setOrderId(orderId + 1);
+    setMessage([])
+    setPrice(0)
+    return 
+  }
 
 
   return(
@@ -82,7 +88,7 @@ const Receipt = () =>{
       </div>
       <div>
         <h3>Your total Price is: {price.toFixed(2)}</h3>
-        <button>Submit Order</button>
+        <button onClick={ordering}>Submit Order</button>
       </div>
     </div>
   )

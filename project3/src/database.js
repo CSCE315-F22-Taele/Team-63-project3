@@ -26,12 +26,35 @@ app.get('/supply', async (req, res) => {
     res.end();
   
 });
+
+app.get('/supplydate', async(req,res)=>{
+    column = req.body.column
+    date = req.body.date
+    const data = await pool.query("select " + column + " FROM \"supply\" where orderdate = '"+date+"';")
+    res.json(data.row)
+    res.end()
+})
+
+app.get('/column', async(req,res)=>{
+    const data = await pool.query("SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'supply';")
+    res.json(data.rows)
+    res.end()
+})
 //This is going to pull the data from the order table
 app.get('/order', async(req,res)=>{
     const data = await pool.query("select * from \"order\";");
     res.json(data.rows);
     res.end()
 });
+
+app.get('./certainorder',async(req,res)=>{
+    const startdate = req.body.startdate
+    const enddate = req.body.enddate
+    const data = await pool.query("select * from \"order\" where orderdate>='"+startdate+"' and orderdate <= '"+enddate+"';")
+    res.json(data.rows)
+    res.end;
+})
+
 //This is going to be pulling the data from the food table
 app.get("/food", async(req,res)=>{
     const data = await pool.query("select* from \"food\";");

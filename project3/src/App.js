@@ -6,6 +6,7 @@ import Receipt from './recept';
 
 function App() {
    
+    
       // const handleChange = event => {
       //   setMessage(message.push(event.target.value));
       // };

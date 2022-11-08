@@ -32,6 +32,8 @@ body{
 	background-color: rgb(126,94,96);
 	color: white;
 	width: 300px;
+	padding: 20px;
+	justify-content: center;
 }
 
 .customer {

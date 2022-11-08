@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useEffect, useRef} from 'react'
 import {useState} from 'react';
 import './App.css';
-import Receipt from './recept';
+import Receipt from './receipt';
 
 function App() {
    
@@ -55,12 +55,12 @@ function App() {
 
   return (
     <>
-    
-    <body>
-        <h1>Welcome to Chick-Fil-A</h1>
-        <Receipt></Receipt>
+      <body>
+          <h1>Welcome to Chick-Fil-A</h1>
+          <img src={require('./chick.jpg')} />
+          <Receipt></Receipt>
       </body>
-      </>
+    </>
   );
 }
 

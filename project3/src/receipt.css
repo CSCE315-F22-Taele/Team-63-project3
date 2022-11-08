@@ -20,6 +20,12 @@ body{
 	margin: 10px;
 	height: 100px;
 	width: 210px;
+	transition-duration: 0.5s;
+}
+
+.btn:hover {
+	background-color: #306370;
+	cursor: pointer;
 }
 
 .menuButtons {
@@ -48,6 +54,12 @@ body{
 	font-weight: 900;
 	color: white;
 	font-size: 17px;
+	transition-duration: 0.5s;
+}
+
+.submit-order:hover {
+	background-color: #800000;
+	cursor: pointer;
 }
 
 .swtich-view {
@@ -76,4 +88,10 @@ body{
 	margin: 10px;
 	height: 10px;
 	width: 150px;
+	transition-duration: 0.5s;
+}
+
+.navbar-btn:hover {
+	background-color: #306370;
+	cursor: pointer;
 }

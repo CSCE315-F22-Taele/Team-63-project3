@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react'
-
+import './receipt.css';
 
 const Receipt = () =>{
   const [message, setMessage] = useState([]);
@@ -44,7 +44,7 @@ const Receipt = () =>{
 
     return listOfBts.map((button) => {
       return(
-        <button onClick={() => addItem(button)}>{button.fooditem}</button>
+        <button class="btn" onClick={() => addItem(button)}>{button.fooditem}</button>
       )
     })
   }
@@ -79,18 +79,31 @@ const Receipt = () =>{
 
 
   return(
-    <div>
-      <div>
-        {displayButtons()}
+    <>
+      <div class="switch-view">
+          <ul class="navbar-list">
+            <li>
+              <button class="navbar-btn">Customer</button>
+            </li>
+            <li>
+              <button class="navbar-btn">Server</button>
+            </li>
+            <li>
+              <button class="navbar-btn">Manager</button>
+            </li>
+          </ul>
       </div>
-      <div>
-        {displayItems}
+      <div class="customer">
+        <div class="menuButtons">
+          {displayButtons()}
+        </div>
+        <div class="receipt">
+          <h3>Your total Price is: {price.toFixed(2)}</h3>
+          {displayItems}
+          <button onClick = {ordering} class="submit-order">Submit Order</button>
+        </div>
       </div>
-      <div>
-        <h3>Your total Price is: {price.toFixed(2)}</h3>
-        <button onClick={ordering}>Submit Order</button>
-      </div>
-    </div>
+    </>
   )
 }
 export default Receipt;

@@ -1,3 +1,4 @@
+//all the includes that we need to get the database working
 const express = require('express');
 const { Pool } = require('pg');
 const dotenv = require('dotenv').config();
@@ -5,7 +6,7 @@ const cors = require('cors');
 // Create express app
 const app = express();
 const port = 5000;
-// Create pool
+// Create pool, allowing us to access the 
 const pool = new Pool({
     user: "csce331_905_john",
     host: 'csce-315-db.engr.tamu.edu',
@@ -15,10 +16,12 @@ const pool = new Pool({
     ssl: {rejectUnauthorized: false}
 });
 
+//allows us to access the database and use it for the rest of the code
 app.use(cors());
 app.use(express.json());
 
 //This is going to pull all the data from the sql database
+
 //This is going to pull the data from the supply table
 app.get('/supply', async (req, res) => {
     const team = await pool.query('select * FROM \"supply\";');
@@ -27,6 +30,7 @@ app.get('/supply', async (req, res) => {
   
 });
 
+//This allows us to get the specific things from the supply table NOTE:NOT FOR SCRUM 1
 app.get('/supplydate', async(req,res)=>{
     column = req.body.column
     date = req.body.date
@@ -35,6 +39,7 @@ app.get('/supplydate', async(req,res)=>{
     res.end()
 })
 
+//Get the column names from the table NOTE: NOT FOR SCRUM 1
 app.get('/column', async(req,res)=>{
     const data = await pool.query("SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'supply';")
     res.json(data.rows)
@@ -47,6 +52,7 @@ app.get('/order', async(req,res)=>{
     res.end()
 });
 
+//getting some order from a start date and end date NOTE: NOT FOR SCRUM1
 app.get('./certainorder',async(req,res)=>{
     const startdate = req.body.startdate
     const enddate = req.body.enddate
@@ -62,7 +68,7 @@ app.get("/food", async(req,res)=>{
     res.end;
 });
 
-
+//This add into the food table
 app.post("/insertfood", async(req,res)=>{
     console.log("It is in");
     const foodId = req.body.foodId;
@@ -86,6 +92,7 @@ app.post("/insertfood", async(req,res)=>{
     );
 });
 
+//Updating the food table NOTE: NOT IN THIS SCRUM 1
 app.post("/updatefood",async(req,res)=>{
     const foodId = req.body.foodId;
     const foodItem = req.body.foodItem;
@@ -105,6 +112,7 @@ app.post("/updatefood",async(req,res)=>{
     );
 });
 
+//inserting the order into the order table 
 app.post("/insertorder", async(req,res)=>{
     const orderId = req.body.orderId;
     const foodId = req.body.foodId;
@@ -125,7 +133,7 @@ app.post("/insertorder", async(req,res)=>{
     );
 });
 
-
+//entering supplies into the supply datebase
 app.post("/insertsupply", async(req,res)=>{
     const supplyItem = req.body.supplyItem;
     
@@ -146,6 +154,7 @@ app.post("/insertsupply", async(req,res)=>{
     
 });
 
+//creating updating the supply table
 app.post("/newsupply",async(req,res)=>{
     const supplyItem = req.body.supplyItem;
     const supplyQuantity = req.body.quantity;

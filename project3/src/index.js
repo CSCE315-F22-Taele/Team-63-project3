@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-
+//rendering the front end
 ReactDOM.render(
   <App />, document.querySelector('#root')
 )/*"start": "react-scripts start"*/

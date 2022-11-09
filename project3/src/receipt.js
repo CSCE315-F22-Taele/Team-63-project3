@@ -3,10 +3,12 @@ import React, {useEffect, useState} from 'react'
 import './receipt.css';
 
 const Receipt = () =>{
-  const [message, setMessage] = useState([]);
-  const [listOfBts, setListOfBits] = useState([])
-  const [price, setPrice] = useState(0)
-  const [orderId, setOrderId] = useState(420);
+  //all the variable we need to use
+  const [message, setMessage] = useState([]); //This is the order receipt of all the item
+  const [listOfBts, setListOfBits] = useState([]) //This is for all the list of buttons
+  const [price, setPrice] = useState(0) //setting the total price of the order
+  const [orderId, setOrderId] = useState(501);//This is for the order id
+  //creating the date
   var today = new Date();
   var day = String(today.getDate()).padStart(2, '0');
   var month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -15,6 +17,7 @@ const Receipt = () =>{
   var orderdt = year + '-' + month + '-' + day;
   console.log(orderdt)
   
+  //getting all the items in the food table to the listOfBts
   useEffect(() => {
     const callApi = async () =>{
       await axios.get("http://localhost:5000/food").then((result) => {
@@ -25,11 +28,11 @@ const Receipt = () =>{
     callApi()
   }, [])
 
-  
+  //This is for error checking
   console.log("Is this even working and that is the question?")
   console.log(listOfBts);
  
-
+  //when you add new item into the order receipt 
   const addItem = (item) => {
     const new_list = []
     new_list.push(...message)
@@ -37,11 +40,13 @@ const Receipt = () =>{
     setMessage(new_list)
     setPrice(price + item.price)
   }
+
+  //display to button 
   const displayButtons = () => {
     if(listOfBts.length === 0){
       return <div></div>
     }
-
+    //map all the food item to create them into butons
     return listOfBts.map((button) => {
       return(
         <button class="btn" onClick={() => addItem(button)}>{button.fooditem}</button>
@@ -49,10 +54,12 @@ const Receipt = () =>{
     })
   }
 
+  //show all the things that you ordered
   const displayItems = message.map(item => {
       return <li key = {item.fooditem}>{item.fooditem}: {item.price}</li>
   })
 
+  //This is the function call for us to push the order into the backend
   const pushOrder = (orderId, foodId, quantity, orderdate, amount) =>{
     axios.post("http://localhost:5000/insertorder",{
       orderId: orderId,
@@ -66,10 +73,11 @@ const Receipt = () =>{
     })
   }
 
+  //This allows us to push everything into the order table in the data base and reset everything
   const ordering = () =>{
     for(var i = 0; i < message.length; ++i){
-      console.log(orderId,message[i].foodid,1,orderId,1);
-      pushOrder(orderId,message[i].foodid,1,orderdt,1);
+      console.log(orderId,message[i].foodid,1,orderId,message[i].price);
+      pushOrder(orderId,message[i].foodid,1,orderdt,message[i].price);
     }
     setOrderId(orderId + 1);
     setMessage([])
@@ -77,7 +85,7 @@ const Receipt = () =>{
     return 
   }
 
-
+  //return the html of what we created
   return(
     <>
       <div class="switch-view">

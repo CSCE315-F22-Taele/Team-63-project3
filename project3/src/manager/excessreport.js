@@ -99,7 +99,6 @@ const Excessreport = () => {
             <input type="text" name="Start Date" placeholder="John" value = {this.state.value} onClick={this} required />
             <input type="text" name="last_name" placeholder="Doe" required />
             <button type="submit">Submit</button>  
-
         </form>
     </div>
     )

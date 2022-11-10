@@ -88,19 +88,6 @@ const Receipt = () =>{
   //return the html of what we created
   return(
     <>
-      <div class="switch-view">
-          <ul class="navbar-list">
-            <li>
-              <button class="navbar-btn">Customer</button>
-            </li>
-            <li>
-              <button class="navbar-btn">Server</button>
-            </li>
-            <li>
-              <button class="navbar-btn">Manager</button>
-            </li>
-          </ul>
-      </div>
       <div class="customer">
         <div class="menuButtons">
           {displayButtons()}

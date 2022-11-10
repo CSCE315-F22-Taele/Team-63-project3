@@ -57,7 +57,7 @@ const Salesreport = () =>{
             {displayTable()}
         </div>
       )
-    
-
+  
     
 }
+export default Salesreport;

@@ -14,15 +14,10 @@ function Manager() {
       <body>
           <h1>Welcome to Chick-Fil-A</h1>
             <h1>This is the manager tab</h1>
-          <img src={require('./chick.jpg')} />
+          <img src="/chick.png" alt = "chick fila logo"/>
           <ul>
-            <button><Link to = "salesreport">Server</Link></button>
-            <button><Link to = "manager">Ordering System</Link></button>
+            <button><Link to = "/manager/salesreport">Sales Report</Link></button>
           </ul>
-          <Routes>
-            <Route exact path = "/salesreport" element = {<Salesreport/>}/>
-            <Route exact path = "/manager" element = {<Manager/>}/>
-        </Routes>
           <Receipt></Receipt>
       </body>
     </>

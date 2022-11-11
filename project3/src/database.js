@@ -53,9 +53,11 @@ app.get('/order', async(req,res)=>{
 });
 
 //getting some order from a start date and end date NOTE: NOT FOR SCRUM1
-app.get('./certainorder',async(req,res)=>{
-    const startdate = req.body.startdate
-    const enddate = req.body.enddate
+app.get('/certainorder/:startdate/:enddate',async(req,res)=>{
+    console.log("We made it into the program");
+    var startdate = req.params.startdate;
+    var enddate = req.params.enddate;
+    console.log("select * from \"order\" where orderdate>='"+startdate+"' and orderdate <= '"+enddate+"';")
     const data = await pool.query("select * from \"order\" where orderdate>='"+startdate+"' and orderdate <= '"+enddate+"';")
     res.json(data.rows)
     res.end;

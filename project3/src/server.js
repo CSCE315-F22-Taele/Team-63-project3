@@ -12,7 +12,7 @@ function Server() {
       <body>
           <h1>Welcome to Chick-Fil-A</h1>
             <h1>This is the Server tab</h1>
-          <img src={require('./chick.jpg')} />
+          <img src="/chick.png" />
           <Receipt></Receipt>
       </body>
     </>

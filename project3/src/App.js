@@ -10,6 +10,7 @@ import Customer from './customer';
 import Server from './server';
 import NavBar from "./navbar";
 import Salesreport from './manager/salesreport';
+import MapFront from './googlemap/mapfrontend'
 function App() {
    
     
@@ -79,6 +80,7 @@ function App() {
         <Route exact path = "/server" element = {<Server/>}/>
         <Route exact path = "/manager" element = {<Manager/>}/>
         <Route exact path = "/manager/salesreport" element = {<Salesreport/>}/>
+        <Route exact path = "/googlemap" element={<MapFront/>}/>
       </Routes>
     </body>
   );

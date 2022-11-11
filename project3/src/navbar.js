@@ -7,6 +7,7 @@ function NavBar(){
             <button><Link to = "/">Customer</Link></button>
             <button><Link to = "/server">Server</Link></button>
             <button><Link to = "/manager">Manager</Link></button>
+            <button><Link to = "/googlemap">Locations</Link></button>
         </ul>
     )
 }

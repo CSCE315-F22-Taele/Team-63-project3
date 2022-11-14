@@ -17,6 +17,7 @@ function Manager() {
           <img src="/chick.png" alt = "chick fila logo"/>
           <ul>
             <button><Link to = "/manager/salesreport">Sales Report</Link></button>
+            <button><Link to = "/manager/excessreport">Excessreport Report</Link></button>
           </ul>
           <Receipt></Receipt>
       </body>

@@ -31,9 +31,9 @@ app.get('/supply', async (req, res) => {
 });
 
 //This allows us to get the specific things from the supply table NOTE:NOT FOR SCRUM 1
-app.get('/supplydate', async(req,res)=>{
-    column = req.body.column
-    date = req.body.date
+app.get('/supplydate/:column/:date', async(req,res)=>{
+    column = req.params.column
+    date = req.params.date
     const data = await pool.query("select " + column + " FROM \"supply\" where orderdate = '"+date+"';")
     res.json(data.row)
     res.end()

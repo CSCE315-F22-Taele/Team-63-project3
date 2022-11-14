@@ -46,14 +46,7 @@ const Salesreport = () =>{
     
         else{
           return(
-            <><body>
-              <h1>Welcome to Chick-Fil-A</h1>
-              <h1>This is the manager tab</h1>
-              <img src="chick.png" />
-              <ul>
-                <button><Link to = "/manager">Ordering System</Link></button>
-              </ul>
-            </body><table>
+            <><table>
                 <thread>
                   <tr>
                     <th>Order ID</th>
@@ -89,6 +82,14 @@ const Salesreport = () =>{
       return(<>
 
         <div>
+            <body>
+            <h1>Welcome to Chick-Fil-A</h1>
+            <h1>This is the manager tab</h1>
+            <img src="chick.png" />
+            <ul>
+              <button><Link to = "/manager">Ordering System</Link></button>
+            </ul>
+            </body>
             <input onChange={change1} value = {startdate}/>
             <input onChange={change2} value = {enddate}/>
             <button onClick = {()=>{finalResult()}}>Submit</button>

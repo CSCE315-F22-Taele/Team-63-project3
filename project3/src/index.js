@@ -1,11 +1,12 @@
 import { Auth0Provider } from '@auth0/auth0-react';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom';
 
 //rendering the front end
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <BrowserRouter>
     {/* <Auth0Provider
@@ -20,7 +21,7 @@ ReactDOM.render(
   </React.StrictMode>
   
   , 
-  document.querySelector('#root')
+  // document.querySelector('#root')
 )/*"start": "react-scripts start"*/
 
 // If you want to start measuring performance in your app, pass a function

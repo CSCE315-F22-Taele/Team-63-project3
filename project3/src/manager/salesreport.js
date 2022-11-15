@@ -33,18 +33,18 @@ const Salesreport = () =>{
       const displayTable = () => {
         // getAllvalue()
         // callApi()
-        if(tables.length === 0){
-          return <div>
-            <h1>Welcome to Chick-Fil-A</h1>
-            <h1>This is the manager tab</h1>
-          <img src="/chick.png" />
-          <ul>  
-            <button><Link to = "/manager">Ordering System</Link></button>
-          </ul>
-          </div>
-        }
+        // if(tables.length === 0){
+        //   return <div>
+        //     <h1>Welcome to Chick-Fil-A</h1>
+        //     <h1>This is the manager tab</h1>
+        //   <img src="/chick.png" />
+        //   <ul>  
+        //     <button><Link to = "/manager">Ordering System</Link></button>
+        //   </ul>
+        //   </div>
+        // }
     
-        else{
+        
           return(
             <><table>
                 <thread>
@@ -69,7 +69,7 @@ const Salesreport = () =>{
                 </tbody>
               </table></>
           )
-        }
+        
       }
 
       function finalResult(){

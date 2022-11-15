@@ -12,7 +12,7 @@ function Server() {
       <body>
           <h1>Welcome to Chick-Fil-A</h1>
             <h1>This is the Server tab</h1>
-          <img src="/chick.png" />
+            <img src='chick.jpg' alt = "chick fila logo" />
           <Receipt></Receipt>
       </body>
     </>

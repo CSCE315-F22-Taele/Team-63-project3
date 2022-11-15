@@ -14,7 +14,7 @@ function Manager() {
       <body>
           <h1>Welcome to Chick-Fil-A</h1>
             <h1>This is the manager tab</h1>
-          <img src="/chick.png" alt = "chick fila logo"/>
+            <img src='chick.jpg' alt = "chick fila logo" />
           <ul>
             <button><Link to = "/manager/salesreport">Sales Report</Link></button>
             <button><Link to = "/manager/excessreport">Excessreport Report</Link></button>

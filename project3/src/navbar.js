@@ -3,14 +3,15 @@ import {Link} from 'react-router-dom';
 
 function NavBar(){
     return(
-        <div class="navigation">
-            <ul>
+        <nav class="navigation">
+            <a href="/"><img src="/cfa-logo.png" width="50" height="50"></img></a>
+            <div class="more-header">
                 <a href="/">Customer</a>
                 <a href="/server">Server</a>
                 <a href="/manager">Manager</a>
                 <a href="/googlemap">Locations</a>
-            </ul>
-        </div>
+            </div>
+        </nav>
     )
 }
 

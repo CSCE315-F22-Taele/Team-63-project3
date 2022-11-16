@@ -49,7 +49,12 @@ const Receipt = () =>{
     //map all the food item to create them into butons
     return listOfBts.map((button) => {
       return(
-        <button class="btn" onClick={() => addItem(button)}>{button.fooditem}</button>
+        <button class="btn" onClick={() => addItem(button)}>
+          <div class={button.fooditem}>
+            <img src={button.foodimg} width="100" height="100"></img>
+            <p>{button.fooditem}</p>
+          </div>
+        </button>
       )
     })
   }

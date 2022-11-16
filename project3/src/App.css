@@ -1,3 +1,8 @@
+body {
+	margin: 0px;
+	font-family: Tahoma, sans-serif;
+}
+
 .button1 {
 	background-color: #4CAF50;
 } /* Green */
@@ -14,5 +19,33 @@
 }
 
 a {
-	padding: 8px;
+	color: #E51636;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.navigation {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	margin: 0%;
+	background: #FFFFFF;
+	vertical-align: middle;
+}
+
+.more-header{
+	display: block;
+	padding: 14px 16px;
+	float: right;
+	align-items: center;
+	font-size: 24px;
+	font-weight:100;
+}
+
+.more-header a:hover {
+	background: #EEEEEE;
+}
+
+.customer-body {
+	margin: 8px;
 }

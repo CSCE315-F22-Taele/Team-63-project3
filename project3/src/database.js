@@ -1,6 +1,7 @@
 //all the includes that we need to get the database working
 const express = require('express');
 const { Pool } = require('pg');
+const path = require('path');
 const dotenv = require('dotenv').config();
 const cors = require('cors');
 // Create express app
@@ -19,6 +20,9 @@ const pool = new Pool({
 //allows us to access the database and use it for the rest of the code
 app.use(cors());
 app.use(express.json());
+//This is for serving into the react build folder from express
+// app.use(express.static(path.join(path.dirname(path.basename(__dirname)), 'build')));
+// console.log(path.dirname(path.basename(__dirname)));
 
 //This is going to pull all the data from the sql database
 
@@ -31,11 +35,32 @@ app.get('/supply', async (req, res) => {
 });
 
 //This allows us to get the specific things from the supply table NOTE:NOT FOR SCRUM 1
-app.get('/supplydate/:column/:date', async(req,res)=>{
+app.get('/supplydatestart/:column/:startdate', async(req,res)=>{
+    console.log("---------------------------------------")
+    console.log("Made it into the supplydate Start")
     column = req.params.column
-    date = req.params.date
-    const data = await pool.query("select " + column + " FROM \"supply\" where orderdate = '"+date+"';")
-    res.json(data.row)
+    date = req.params.startdate
+    // console.log("This is the column values: ",column)
+    // console.log("This is the date value for start: ",date)
+    console.log("select " + column + " FROM \"supply\" where date = '"+date+"';")
+    const data = await pool.query("select " + column + " FROM \"supply\" where date = '"+date+"';")
+    console.log("for this end column ",column," the data is ", data.rows)
+    console.log("---------------------------------------")
+    res.json(data.rows)
+    res.end()
+})
+
+app.get('/supplydateend/:column/:enddate', async(req,res)=>{
+    console.log("------------------------------------")
+    console.log("Made it into the supplydate End")
+    column = req.params.column
+    date = req.params.enddate
+    // console.log("This is the column values: ",column)
+    // console.log("This is the value for the enddate: ",date)
+    const data = await pool.query("select " + column + " FROM \"supply\" where date = '"+date+"';")
+    console.log("for this start column ",column," the data is ", data.rows)
+    console.log("----------------------------------------")
+    res.json(data.rows)
     res.end()
 })
 
@@ -98,10 +123,13 @@ app.post("/insertfood", async(req,res)=>{
 app.post("/updatefood",async(req,res)=>{
     const foodId = req.body.foodId;
     const foodItem = req.body.foodItem;
-    const price = req.body.price
-
+    const price = req.body.price;
+    const supplies = req.body.supplies;
+    const image = req.body.image
+    console.log("This is the foodId: ",foodId)
+    console.log("UPDATE \"food\" SET fooditem=\'"+foodItem+"\',price="+price+",supplies='"+supplies+"',foodimg='"+image+"' WHERE foodid="+foodId+";")
     pool.query(
-        "UPDATE \"food\" SET fooditem=\'"+foodItem+"\',price="+price+" WHERE foodid="+foodId+";",
+        "UPDATE \"food\" SET fooditem=\'"+foodItem+"\',price="+price+",supplies='"+supplies+"',foodimg='"+image+"' WHERE foodid="+foodId+";",
         (err,result) =>{
             if (err) {
                 console.log("that rat can cook fr!");
@@ -175,6 +203,11 @@ app.post("/newsupply",async(req,res)=>{
         }
     )
 });
+
+//This is going to be in the serve react build folder from express
+// app.get("*",async(req,res)=>{
+//     res.sendFile(path.join(path.dirname(path.basename(__dirname)), 'build', 'index.html'));
+// });
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

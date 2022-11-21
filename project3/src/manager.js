@@ -1,11 +1,7 @@
-import axios from 'axios';
-import React, {useEffect, useRef} from 'react'
-import {useState} from 'react';
+import React from 'react'
 import './App.css';
 import Receipt from './receipt';
-import {Route,Routes,Link} from 'react-router-dom';
-import Salesreport from './manager/salesreport'
-
+import {Link} from 'react-router-dom';
 //import LogIn from './OAuth/oafront.js'
 
 function Manager() {
@@ -17,6 +13,8 @@ function Manager() {
             <img src='chick.jpg' alt = "chick fila logo" />
           <ul>
             <button><Link to = "/manager/salesreport">Sales Report</Link></button>
+            <button><Link to = "/manager/excessreport">Excess Report</Link></button>
+            <button><Link to = "/manager/updatetable">Food Update</Link></button>
           </ul>
           <Receipt></Receipt>
       </body>

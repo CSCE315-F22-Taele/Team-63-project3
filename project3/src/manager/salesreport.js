@@ -76,7 +76,7 @@ const Salesreport = () =>{
         console.log("This is the start date: ",startdate)
         console.log("This is the enddate: ",enddate)
         callApi(startdate,enddate)
-        displayTable()
+        // displayTable()
       }
 
       return(<>
@@ -88,6 +88,7 @@ const Salesreport = () =>{
             <img src="chick.png" />
             <ul>
               <button><Link to = "/manager">Ordering System</Link></button>
+              <button><Link to ="/manager/excessreport">Excess Report</Link></button>
             </ul>
             </body>
             <input onChange={change1} value = {startdate}/>

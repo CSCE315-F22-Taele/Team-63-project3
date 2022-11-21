@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript,MarkerF } from '@react-google-maps/api';
 const MapFront = () => {
   
   const mapStyles = {        
@@ -7,18 +7,26 @@ const MapFront = () => {
     width: "100%"};
   
   const defaultCenter = {
-    lat: 35.65283, lng: 139.83947
+    lat: 30.612030, lng: -96.3409
   }
   
   return (
+    <>
      <LoadScript
        googleMapsApiKey='AIzaSyAwD6SbP7BI_UOU_M36kt8u-e4V4_q-1iw'>
         <GoogleMap
           mapContainerStyle={mapStyles}
-          zoom={10}
+          zoom={18}
           center={defaultCenter}
-        />
+        >
+          <MarkerF
+            position={{lat: 30.6122, lng:-96.3416}}
+          />
+        </GoogleMap>
      </LoadScript>
+     <h1>The Location of Chick-Fil-A</h1>
+     <p1>Memorial Student Center, 275 Joe Routt Blvd, College Station, TX 77843</p1>
+     </>
   )
 }
 export default MapFront;

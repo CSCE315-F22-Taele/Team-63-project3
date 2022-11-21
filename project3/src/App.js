@@ -11,7 +11,8 @@ import Server from './server';
 import NavBar from "./navbar";
 import Salesreport from './manager/salesreport';
 import MapFront from './googlemap/mapfrontend'
-
+import ExcessReport from './manager/excessreport';
+import FoodUpdate from './manager/foodupdate'
 //function App() {
 const App = () => {
   const googleTranslateElementInit = () => {
@@ -31,11 +32,14 @@ const App = () => {
       <div id="google_translate_element"></div>
       <NavBar/>
       <Routes>
+        <Route exact path = "/customer" element = {<Customer/>}/>
         <Route exact path = "/" element = {<Customer/>}/>
         <Route exact path = "/server" element = {<Server/>}/>
         <Route exact path = "/manager" element = {<Manager/>}/>
         <Route exact path = "/manager/salesreport" element = {<Salesreport/>}/>
         <Route exact path = "/googlemap" element={<MapFront/>}/>
+        <Route exact path = "/manager/excessreport" element = {<ExcessReport/>}/>
+        <Route exact path = "/manager/updatetable" element = {<FoodUpdate/>}/>
       </Routes>
     </body>
   );

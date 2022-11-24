@@ -50,11 +50,17 @@ a {
 	margin: 8px;
 }
 
-/* google translate to eliminate 'powered by google' */
 .goog-logo-link {
 	display:none !important;
   } 
 	
-  .goog-te-gadget{
+.goog-te-gadget{
 	color: transparent !important;
-  }
+	height: 20px !important; width: 145px !important; overflow: hidden !important; 
+}
+  
+/* eliminate banner google translate */
+.goog-te-banner-frame.skiptranslate {
+	display: none !important;
+	height: 0
+}

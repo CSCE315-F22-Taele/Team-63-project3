@@ -6,6 +6,7 @@ import { useLocation } from "react-router";
 import Manager from './manager';
 import Customer from './customer';
 import Server from './server';
+import roles from './roles.json';
 
 function App (){
   
@@ -33,19 +34,22 @@ function App (){
   const onSuccess = (res) => {
     
     setProfile(res.profileObj);
+    const config = roles.find(item => item.email === res.profileObj.email);
     
-    if (res.profileObj.name === 'Anna Huang') {
+    if(config !== undefined) {
+      if (config.role === 'Manager') {
           document.getElementById("btnManager").hidden=false;
           document.getElementById("btnServer").hidden=true;
           document.getElementById("btnCustomer").hidden=true;
-        } else if (res.profileObj.email === 'annahuang5668@gmail.com') {
+      } else if (config.role === 'Server') {
           document.getElementById("btnManager").hidden=true;
           document.getElementById("btnServer").hidden=false;
           document.getElementById("btnCustomer").hidden=true;
-        } else {
-          document.getElementById("btnManager").hidden=true;
-          document.getElementById("btnServer").hidden=true;
-          document.getElementById("btnCustomer").hidden=false;
+      }
+    } else {
+      document.getElementById("btnManager").hidden=true;
+      document.getElementById("btnServer").hidden=true;
+      document.getElementById("btnCustomer").hidden=false;
     }
     
     document.getElementById("loginControl").hidden=true;

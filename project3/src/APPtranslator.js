@@ -17,7 +17,7 @@ import FoodUpdate from './manager/foodupdate';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import {gapi} from 'gapi-script';
 
-const translate = () => {
+const APPtranslator = () => {
   //const [ profile, setProfile ] = useState([]);
   //const clientid = "7130970063-8l4ukqnaa0o24aiklhbbb8vbo8rpos8a.apps.googleusercontent.com";
   const googleTranslateElementInit = () => {
@@ -95,4 +95,4 @@ const translate = () => {
   );
 }
 
-export default translate;
+export default APPtranslator;

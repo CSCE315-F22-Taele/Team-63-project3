@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
-import translate from './translate';
+import APPtranslator from './APPtranslator';
 import { useLocation } from "react-router";
 import Manager from './manager';
 import Customer from './customer';
@@ -11,6 +11,11 @@ function App (){
   
   const [ profile, setProfile ] = useState([]);
   const clientId = '7130970063-8l4ukqnaa0o24aiklhbbb8vbo8rpos8a.apps.googleusercontent.com';
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement({ pageLanguage: 'en', 
+    layout: window.google.translate.TranslateElement.FloatPosition.TOP_LEFT }, 
+    'google_translate_element')
+  }
   useEffect(() => {
     const initClient = () => {
       gapi.auth2.init({
@@ -19,7 +24,11 @@ function App (){
       });
     };
     gapi.load('client:auth2', initClient);
-  });
+    var addScript = document.createElement('script');
+    addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, [])
 
   const onSuccess = (res) => {
     
@@ -63,6 +72,7 @@ function App (){
   return (
     
     <div class="login">
+      <div id="google_translate_element"></div>
       <div id="loginControl">
             <br/>
             <p><h1>Chick-Fil-A Login</h1><br/>

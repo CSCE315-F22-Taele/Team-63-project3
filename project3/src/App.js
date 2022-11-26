@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
-import APPtranslator from './APPtranslator';
 import { useLocation } from "react-router";
 import Manager from './manager';
 import Customer from './customer';
@@ -45,6 +44,10 @@ function App (){
           document.getElementById("btnManager").hidden=true;
           document.getElementById("btnServer").hidden=false;
           document.getElementById("btnCustomer").hidden=true;
+      } else if (config.role === 'Customer') {
+        document.getElementById("btnManager").hidden=true;
+        document.getElementById("btnServer").hidden=true;
+        document.getElementById("btnCustomer").hidden=false;
       }
     } else {
       document.getElementById("btnManager").hidden=true;

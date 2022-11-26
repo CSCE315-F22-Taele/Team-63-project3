@@ -1,5 +1,4 @@
 [
-        
     {
         "Description": "Project Manager",
         "role": "Manager",
@@ -8,7 +7,7 @@
     },
     {
         "Description":"Backend",
-        "role": "Manager",
+        "role": "Server",
         "email":"annahuang5668@tamu.edu",
         "Name": "Anna"
     },
@@ -30,5 +29,4 @@
         "email": "eric27n@tamu.edu",
         "Name": "Eric"
     }
-
 ]

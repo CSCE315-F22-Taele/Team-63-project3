@@ -83,13 +83,12 @@ const Salesreport = () =>{
 
         <div>
             <body>
-            <h1>Welcome to Chick-Fil-A</h1>
-            <h1>This is the manager tab</h1>
-            <img src="chick.png" />
-            <ul>
+            
+            <h1>This is the sales report tab</h1>
+            {/* <ul>
               <button><Link to = "/manager">Ordering System</Link></button>
               <button><Link to ="/manager/excessreport">Excess Report</Link></button>
-            </ul>
+            </ul> */}
             </body>
             <input onChange={change1} value = {startdate}/>
             <input onChange={change2} value = {enddate}/>

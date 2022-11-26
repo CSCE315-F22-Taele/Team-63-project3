@@ -90,13 +90,12 @@ const FoodUpdate = () =>{
     }
     return(
         <><body>
-            <h1>Welcome to Chick-Fil-A</h1>
-            <h1>This is the manager tab</h1>
-            <img src="chick.png" />
-            <ul>
+           
+            <h1>This is the foodupdate tab</h1>
+            {/* <ul>
                 <button><Link to="/manager">Ordering System</Link></button>
                 <button><Link to="/manager/salesreport">Sales Report</Link></button>
-            </ul>
+            </ul> */}
             {displayTable()}
             <label>Food ID:</label>
             <input onChange={change1} value={theFoodId}></input>

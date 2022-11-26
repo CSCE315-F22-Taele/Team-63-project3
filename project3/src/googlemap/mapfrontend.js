@@ -9,7 +9,7 @@ const MapFront = () => {
   const defaultCenter = {
     lat: 30.612030, lng: -96.3409
   }
-  
+
   return (
     <>
      <LoadScript

@@ -55,11 +55,35 @@ a {
 	
 .goog-te-gadget{
 	color: transparent !important;
-	height: 20px !important; width: 145px !important; overflow: hidden !important; 
+	height: 20px !important; width: 148px !important; overflow: hidden !important; 
 }
-  
+
 /* eliminate banner google translate */
 .goog-te-banner-frame.skiptranslate {
 	display: none !important;
 	height: 0
+}
+
+.l {
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column; 
+	margin-top: 10px;
+	/* display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-style: solid;
+	justify-content: center; */
+}
+#btnGoogleLogin {
+	margin-left: 8vw;
+}
+
+#loginControl {
+	margin-top: 10vw;
+}
+
+.login-text {
+	font-size: 25px;
 }

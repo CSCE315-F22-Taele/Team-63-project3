@@ -25,7 +25,6 @@ function Customer() {
       <div class="customer-body">
           <h1>Welcome to Chick-Fil-A</h1>
             <h1>This is the customer tab</h1>
-            <img src='chick.jpg' alt = "chick fila logo" />
           <Receipt></Receipt>
       </div>
     </>

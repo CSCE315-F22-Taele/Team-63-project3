@@ -6,6 +6,7 @@ import Manager from './manager';
 import Customer from './customer';
 import Server from './server';
 import roles from './roles.json';
+import './App.css';
 
 function App (){
   
@@ -79,10 +80,11 @@ function App (){
   return (
     
     <div class="login">
+      <div class="l">
       <div id="google_translate_element"></div>
       <div id="loginControl">
             <br/>
-            <p><h1>Chick-Fil-A Login</h1><br/>
+            <p class="login-text"><h1>Chick-Fil-A Login</h1><br/>
             </p>
 
         <div id="btnGoogleLogin">
@@ -96,10 +98,11 @@ function App (){
           />
         </div>
       </div>
+      </div>
 
       <div id="btnGoogleLogout" hidden="true">
         <GoogleLogout clientId={clientId} 
-        buttonText="Log out" onLogoutSuccess={logOut} 
+        buttonText="Log out" onLogoutSuccess={logOut}
         />
       </div>
 

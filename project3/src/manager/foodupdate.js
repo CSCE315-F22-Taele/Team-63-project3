@@ -9,6 +9,7 @@ const FoodUpdate = () =>{
     const [thePrice, setThePrice] = useState(-1.00)
     const [theSupplies, setSupplies] = useState("")
     const [theimage, setTheImage] = useState("")
+    const [counter,setCounter] = useState(0);
 
     
     const getFood = async()=>{
@@ -18,7 +19,7 @@ const FoodUpdate = () =>{
             setFoods(result.data)
         })
     }
-    getFood()
+
    
 
     const update=async(theFoodId,theFoodItem,thePrice,theSupplies,theimage)=>{
@@ -58,8 +59,10 @@ const FoodUpdate = () =>{
 
 
     const displayTable = ()=>{
-        getFood()
+       
+        getFood();
         return(
+            
             <><table>
                 <thread>
                   <tr>
@@ -96,6 +99,7 @@ const FoodUpdate = () =>{
                 <button><Link to="/manager">Ordering System</Link></button>
                 <button><Link to="/manager/salesreport">Sales Report</Link></button>
             </ul> */}
+
             {displayTable()}
             <label>Food ID:</label>
             <input onChange={change1} value={theFoodId}></input>

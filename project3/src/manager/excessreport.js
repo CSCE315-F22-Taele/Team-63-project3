@@ -13,7 +13,7 @@ const[excess,setExcess] = useState([])
 useEffect(() => {
     const getColumns = async()=>{
         await axios.get('http://localhost:5000/column').then((result)=>{
-            console.log("It gets all of the columns")
+            // console.log("It gets all of the columns")
             setColumns(result.data)
         })
     }
@@ -30,28 +30,38 @@ useEffect(() => {
     console.log(enddate)
   }
   const callApiStart = async (column,startdate) =>{
-    
+    //Object.values(temp1[0])[0]
     await axios.get(`http://localhost:5000/supplydatestart/${column}/${startdate}`).then((result) => {
-        console.log("It has succesfully got through the query")
-        console.log(result.data)
         const new_list = []
         new_list.push(...starts)
-        new_list.push(result.data)
-        console.log("This is the new list ",new_list);
+        var number
+        if(Object.values(result.data[0])[0] == null){
+          number = 1
+        }
+        else{
+          number = Object.values(result.data[0])[0]
+        }
+        new_list.push(number)
         setStarts(new_list)
-        console.log("This is the start now is ",starts)
     });
 
 }
 
 const callApiEnd = async (column,enddate) =>{ 
     await axios.get(`http://localhost:5000/supplydateend/${column}/${enddate}`).then((result) => {
-        console.log(result.data)
+        console.log(Object.values(result.data[0])[0])
         const new_list = []
         new_list.push(...ends)
-        new_list.push(result.data)
+        var number
+        if(Object.values(result.data[0])[0] == null){
+          number = 1
+        }
+        else{
+          number = Object.values(result.data[0])[0]
+        }
+        console.log("This is what you add into the number list ",number)
+        new_list.push(number)
         setEnds(new_list)
-        console.log("This is the end now is ", ends)
     });
 
 }
@@ -93,13 +103,16 @@ const displayTable = () => {
     for(var i = 1; i<columns.length;++i){
         // console.log("This is the column right now for the start columns: ",columns[i].column_name)
         callApiStart(columns[i].column_name,startdate)
+        console.log("This is the start vector: ",starts)
     }
   }
   const getEnd = (columns,enddate)=>{
     for(var i = 1; i < columns.length;++i){
         // console.log("This is the columns right now for the end columns: ",columns[i].column_name)
         callApiEnd(columns[i].column_name,enddate)
+        console.log("This is the end vector value: ",ends)
     }
+
   }
   function finalResult(){
     console.log("This is the start date: ",startdate);

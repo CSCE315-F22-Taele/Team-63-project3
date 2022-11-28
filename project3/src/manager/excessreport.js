@@ -128,14 +128,12 @@ const displayTable = () => {
 
 return(
     <><body>
-        <h1>Welcome to Chick-Fil-A</h1>
-        <h1>This is the manager tab</h1>
-        <img src="chick.png" />
-        <ul>
+        
+        {/* <ul>
             <button><Link to="/manager">Ordering System</Link></button>
             <button><Link to="/manager/salesreport">Sales Report</Link></button>
-        </ul>
-    </body><h1>This makes no sense</h1>
+        </ul> */}
+    </body><h1>This excess report</h1>
     <input onChange={change1} value = {startdate}/>
     <input onChange={change2} value = {enddate}/>
     <button onClick = {()=> finalResult()}>Submit</button>

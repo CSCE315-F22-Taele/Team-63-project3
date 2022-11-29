@@ -81,12 +81,12 @@ function App (){
     
     <div class="login">
       <div class="l">
-      <div id="google_translate_element"></div>
-      <div id="loginControl">
-            <br/>
-            <p class="login-text"><h1>Chick-Fil-A Login</h1><br/>
-            </p>
-
+        <div id="google_translate_element"></div>
+        <div id="loginControl">
+          <p class="login-text">
+            <h1>Chick-Fil-A Login</h1>
+          </p>
+        </div>
         <div id="btnGoogleLogin">
           <GoogleLogin       
               clientId={clientId}
@@ -97,7 +97,6 @@ function App (){
               isSignedIn={true}
           />
         </div>
-      </div>
       </div>
 
       <div id="btnGoogleLogout" hidden="true">

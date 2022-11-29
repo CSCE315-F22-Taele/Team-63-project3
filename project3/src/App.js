@@ -82,13 +82,13 @@ function App (){
     <div class="login">
       <div class="l">
         <div id="google_translate_element"></div>
-        <div id="loginControl">
+        <div id="loginControl" hidden="true">
           <p class="login-text">
             <h1>Chick-Fil-A Login</h1>
           </p>
-        </div>
+        
         <div id="btnGoogleLogin">
-          <GoogleLogin       
+          <GoogleLogin hidden="true"      
               clientId={clientId}
               buttonText="Sign in"
               onSuccess={onSuccess}
@@ -96,6 +96,7 @@ function App (){
               cookiePolicy={'single_host_origin'}
               isSignedIn={true}
           />
+        </div>
         </div>
       </div>
 

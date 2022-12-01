@@ -12,7 +12,7 @@ const[excess,setExcess] = useState([])
 
 useEffect(() => {
     const getColumns = async()=>{
-        await axios.get('http://localhost:5000/column').then((result)=>{
+        await axios.get('http://localhost:6969/column').then((result)=>{
             // console.log("It gets all of the columns")
             setColumns(result.data)
         })
@@ -29,53 +29,61 @@ useEffect(() => {
     setEndDate(event.target.value)
     console.log(enddate)
   }
-  const callApiStart = async (column,startdate) =>{
+
+
+  const callApiStart = async (startdate) =>{
     //Object.values(temp1[0])[0]
-    await axios.get(`http://localhost:5000/supplydatestart/${column}/${startdate}`).then((result) => {
+    await axios.get(`http://localhost:6969/supplydatestart/${startdate}`).then((result) => {
         const new_list = []
-        new_list.push(...starts)
-        var number
-        if(Object.values(result.data[0])[0] == null){
-          number = 1
+        //console.log("This is the data from the api start: ",result.data);
+        for(var i = 1; i<Object.values(result.data[0]).length; ++i){
+          //console.log("This is the value for each one for start: ",Object.values(result.data[0])[i])
+          new_list.push(Object.values(result.data[0])[i])
         }
-        else{
-          number = Object.values(result.data[0])[0]
-        }
-        new_list.push(number)
+        console.log("The new list for start is :",new_list)
         setStarts(new_list)
+        //console.log("This is the starts array: ",starts)
     });
+  
+  }
+    
 
-}
 
-const callApiEnd = async (column,enddate) =>{ 
-    await axios.get(`http://localhost:5000/supplydateend/${column}/${enddate}`).then((result) => {
-        console.log(Object.values(result.data[0])[0])
-        const new_list = []
-        new_list.push(...ends)
-        var number
-        if(Object.values(result.data[0])[0] == null){
-          number = 1
+const callApiEnd = async (enddate) =>{ 
+    await axios.get(`http://localhost:6969/supplydateend/${enddate}`).then((result) => {
+      
+      const new_list = []
+        //console.log("This is the data from the api end: ",result.data);
+        for(var i = 1; i<Object.values(result.data[0]).length; ++i){
+          //console.log("This is the value for each one for end: ",Object.values(result.data[0])[i])
+          new_list.push(Object.values(result.data[0])[i])
         }
-        else{
-          number = Object.values(result.data[0])[0]
-        }
-        console.log("This is what you add into the number list ",number)
-        new_list.push(number)
+        console.log("The new list for end is :",new_list)
         setEnds(new_list)
+        // console.log("This is the ends array: ",ends)
+      
     });
-
 }
 
-const isExcess = ()=>{
+const isExcess = async()=>{
+   console.log("This is starts: ",starts)
+    console.log("This is ends: ",ends)
+    console.log(columns);
+    const new_list = []
     for(var i =1; i < columns.length;++i){
-        let math = (starts[i-1]-enddate[i-1])/starts[i-1]
+        // console.log(columns[i])
+        // console.log("This is the start value", starts[i-1])
+        // console.log("This is the end value: ",ends[i-1])
+        const math = (starts[i-1]-ends[i-1])/(starts[i-1])
+        console.log("The math is ",math)
         if(math < .1){
-            const new_list = []
-            new_list.push(...excess)
-            new_list.push(math)
-            setExcess(new_list)
+          console.log("Made it bitch")
+          new_list.push(columns[i])
         }
+        
     }
+    console.log("This is the new list: ",new_list)
+    setExcess(new_list)
 }
 
 const displayTable = () => {
@@ -90,7 +98,7 @@ const displayTable = () => {
             <tbody>
               {excess.map((item) => (
                 <tr>
-                  <td>{item}</td>
+                  <td key = {item.column_name}>{item.column_name}</td>
                 </tr>
               ))}
             </tbody>
@@ -99,29 +107,14 @@ const displayTable = () => {
     
   }
 
-  const getBegin = (columns,startdate)=>{
-    for(var i = 1; i<columns.length;++i){
-        // console.log("This is the column right now for the start columns: ",columns[i].column_name)
-        callApiStart(columns[i].column_name,startdate)
-        console.log("This is the start vector: ",starts)
-    }
-  }
-  const getEnd = (columns,enddate)=>{
-    for(var i = 1; i < columns.length;++i){
-        // console.log("This is the columns right now for the end columns: ",columns[i].column_name)
-        callApiEnd(columns[i].column_name,enddate)
-        console.log("This is the end vector value: ",ends)
-    }
-
-  }
   function finalResult(){
     console.log("This is the start date: ",startdate);
     console.log("This is the enddate: ",enddate);
-    getBegin(columns,startdate);
-    getEnd(columns,enddate);
+    callApiStart(startdate);
+    callApiEnd(enddate);
     isExcess();
-    console.log("This is the array for start: ",starts);
-    console.log("This is the array for the end: ", ends);
+    // console.log("This is the array for start: ",starts);
+    // console.log("This is the array for the end: ", ends);
     displayTable();
   }
   

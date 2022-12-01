@@ -20,7 +20,7 @@ const Receipt = () =>{
   //getting all the items in the food table to the listOfBts
   useEffect(() => {
     const callApi = async () =>{
-      await axios.get("http://localhost:5000/food").then((result) => {
+      await axios.get("http://localhost:6969/food").then((result) => {
         console.log(result.data)
         setListOfBits(result.data)
       });
@@ -66,7 +66,7 @@ const Receipt = () =>{
 
   //This is the function call for us to push the order into the backend
   const pushOrder = (orderId, foodId, quantity, orderdate, amount) =>{
-    axios.post("http://localhost:5000/insertorder",{
+    axios.post("http://localhost:6969/insertorder",{
       orderId: orderId,
       foodId: foodId,
       quantity: quantity,
@@ -78,11 +78,16 @@ const Receipt = () =>{
     })
   }
 
+  // const pushSupply = ()=>{
+  
+  // }
+
   //This allows us to push everything into the order table in the data base and reset everything
   const ordering = () =>{
     for(var i = 0; i < message.length; ++i){
       console.log(orderId,message[i].foodid,1,orderId,message[i].price);
       pushOrder(orderId,message[i].foodid,1,orderdt,message[i].price);
+    
     }
     setOrderId(orderId + 1);
     setMessage([])

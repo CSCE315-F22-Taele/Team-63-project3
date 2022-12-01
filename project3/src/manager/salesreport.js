@@ -12,7 +12,7 @@ const Salesreport = () =>{
 
 
     const callApi = async (startdate,enddate) =>{
-        await axios.get(`http://localhost:5000/certainorder/${startdate}/${enddate}`).then((result) => {
+        await axios.get(`http://localhost:6969/certainorder/${startdate}/${enddate}`).then((result) => {
             console.log("It has succesfully got through the query")
             console.log(result.data)
             setTable(result.data)

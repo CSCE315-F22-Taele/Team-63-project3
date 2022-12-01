@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config();
 const cors = require('cors');
 // Create express app
 const app = express();
-const port = 5000;
+const port = 6969;
 // Create pool, allowing us to access the 
 const pool = new Pool({
     user: "csce331_905_john",
@@ -35,30 +35,28 @@ app.get('/supply', async (req, res) => {
 });
 
 //This allows us to get the specific things from the supply table NOTE:NOT FOR SCRUM 1
-app.get('/supplydatestart/:column/:startdate', async(req,res)=>{
+app.get('/supplydatestart/:startdate', async(req,res)=>{
     console.log("---------------------------------------")
-    console.log("Made it into the supplydate Start")
-    column = req.params.column
+    // console.log("Made it into the supplydate Start")
     date = req.params.startdate
     // console.log("This is the column values: ",column)
     // console.log("This is the date value for start: ",date)
-    console.log("select " + column + " FROM \"supply\" where date = '"+date+"';")
-    const data = await pool.query("select " + column + " FROM \"supply\" where date = '"+date+"';")
-    console.log("for this end column ",column," the data is ", data.rows)
+    
+    const data = await pool.query("select * FROM \"supply\" where date = '"+date+"';")
+    console.log(" the data is ", data.rows)
     console.log("---------------------------------------")
     res.json(data.rows)
     res.end()
 })
 
-app.get('/supplydateend/:column/:enddate', async(req,res)=>{
+app.get('/supplydateend/:enddate', async(req,res)=>{
     console.log("------------------------------------")
     console.log("Made it into the supplydate End")
-    column = req.params.column
     date = req.params.enddate
     // console.log("This is the column values: ",column)
     // console.log("This is the value for the enddate: ",date)
-    const data = await pool.query("select " + column + " FROM \"supply\" where date = '"+date+"';")
-    console.log("for this start column ",column," the data is ", data.rows)
+    const data = await pool.query("select * FROM \"supply\" where date = '"+date+"';")
+    // console.log("for this start column ",column," the data is ", data.rows)
     console.log("----------------------------------------")
     res.json(data.rows)
     res.end()

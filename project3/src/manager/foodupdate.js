@@ -13,7 +13,7 @@ const FoodUpdate = () =>{
 
     
     const getFood = async()=>{
-        await axios.get('http://localhost:5000/food').then((result)=>{
+        await axios.get('http://localhost:6969/food').then((result)=>{
             console.log("It gets all of the columns")
             console.log("This is the result: ", result)
             setFoods(result.data)

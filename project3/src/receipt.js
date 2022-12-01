@@ -103,7 +103,7 @@ const Receipt = () =>{
           {displayButtons()}
         </div>
         <div class="receipt">
-          <h3>Your total Price is: {price.toFixed(2)}</h3>
+          <h3>Your total Price is: <span translate="no">{price.toFixed(2)}</span></h3>
           {displayItems}
           <button onClick = {ordering} class="submit-order">Submit Order</button>
         </div>

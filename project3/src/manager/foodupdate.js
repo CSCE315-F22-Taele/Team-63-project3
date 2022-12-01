@@ -9,7 +9,7 @@ const FoodUpdate = () =>{
     const [thePrice, setThePrice] = useState(-1.00)
     const [theSupplies, setSupplies] = useState("")
     const [theimage, setTheImage] = useState("")
-    const [counter,setCounter] = useState(0);
+    const [counter, setCounter] = useState(0)
 
     
     const getFood = async()=>{
@@ -17,6 +17,8 @@ const FoodUpdate = () =>{
             console.log("It gets all of the columns")
             console.log("This is the result: ", result)
             setFoods(result.data)
+            console.log("The size of the food is; ",result.data.length)
+            setCounter(result.data.length)
         })
     }
 
@@ -24,13 +26,30 @@ const FoodUpdate = () =>{
 
     const update=async(theFoodId,theFoodItem,thePrice,theSupplies,theimage)=>{
         console.log("This is the data that is in my function: ",theFoodId,theFoodItem,thePrice,theSupplies,theimage)
-        await axios.post('http://localhost:5000/updatefood',{
+        await axios.post('http://localhost:6969/updatefood',{
             foodId: theFoodId,
             foodItem: theFoodItem,
             price: thePrice,
             supplies: theSupplies,
             image: theimage
         
+        }).then(()=>{
+            console.log("Success")
+            setTheFoodId(-1)
+            setSupplies("")
+            setTheFoodItem("")
+            setThePrice(-1.00)
+            setTheImage("")
+        })
+    }
+    const addLeFood=async(counter,theFoodItem,thePrice,theSupplies,theimage)=>{
+        console.log("This is data that is getting passed in: ",counter,theFoodItem,thePrice,theSupplies,theimage)
+        await axios.post('http://localhost:6969/insertfood',{
+            foodId: counter,
+            foodItem: theFoodItem,
+            price:thePrice,
+            supplies:theSupplies,
+            foodimg:theimage
         }).then(()=>{
             console.log("Success")
             setTheFoodId(-1)
@@ -91,6 +110,10 @@ const FoodUpdate = () =>{
         update(theFoodId,theFoodItem,thePrice,theSupplies,theimage);
         displayTable();
     }
+    function plusFood(){
+        addLeFood(counter,theFoodItem,thePrice,theSupplies,theimage);
+        displayTable();
+    }
     return(
         <><body>
            
@@ -112,6 +135,7 @@ const FoodUpdate = () =>{
             <label>image:</label>
             <input onChange={change5} value={theimage}></input>
             <button onClick={()=>now()}>Submit Change</button>
+            <button onClick={()=>plusFood()}>Add Food!</button>
         </body><h1>Howdy guys</h1></>
     )
 }

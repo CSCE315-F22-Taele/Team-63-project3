@@ -100,12 +100,14 @@ app.post("/insertfood", async(req,res)=>{
     const foodItem = req.body.foodItem;
     const price = req.body.price;
     const supply = req.body.supply;
+    const foodimg = req.body.foodimg;
 
+    console.log("INSERT INTO \"food\" (foodid, fooditem, price, supplies,foodimg) VALUES("+foodId+", '"+foodItem+"',"+price+", '"+supply+"', '"+foodimg+"');")
     pool.query(
-        "INSERT INTO \"food\" (foodid, fooditem, price, supplies) VALUES("+foodId+", '"+foodItem+"',"+price+", '"+supply+"');",
+        "INSERT INTO \"food\" (foodid, fooditem, price, supplies,foodimg) VALUES("+foodId+", '"+foodItem+"',"+price+", '"+supply+"', '"+foodimg+"');",
         // [foodId,foodItem,price,supply],
-        console.log("INSERT INTO \"food\" (foodid, fooditem, price, supplies) VALUES(?,?,?,?);",
-        [foodId,foodItem,price,supply],),
+        // console.log("INSERT INTO \"food\" (foodid, fooditem, price, supplies) VALUES(?,?,?,?);",
+        // [foodId,foodItem,price,supply],),
         (err,result) =>{
             if (err){
                 console.log(err)

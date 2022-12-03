@@ -82,13 +82,13 @@ function App (){
     <div class="login">
       <div class="l">
         <div id="google_translate_element"></div>
-        <div id="loginControl" hidden="true">
+        <div id="loginControl">
           <p class="login-text">
             <h1>Chick-Fil-A Login</h1>
           </p>
         
         <div id="btnGoogleLogin">
-          <GoogleLogin hidden="true"      
+          <GoogleLogin      
               clientId={clientId}
               buttonText="Sign in"
               onSuccess={onSuccess}
@@ -100,7 +100,7 @@ function App (){
         </div>
       </div>
 
-      <div id="btnGoogleLogout" hidden="true">
+      <div id="btnGoogleLogout">
         <GoogleLogout clientId={clientId} 
         buttonText="Log out" onLogoutSuccess={logOut}
         />

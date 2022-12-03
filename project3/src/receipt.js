@@ -26,7 +26,7 @@ const Receipt = () =>{
       });
     }
     callApi()
-  }, [])
+  }, [listOfBts])
 
   //This is for error checking
   console.log("Is this even working and that is the question?")

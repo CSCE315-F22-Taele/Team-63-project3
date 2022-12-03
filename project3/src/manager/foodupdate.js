@@ -12,16 +12,27 @@ const FoodUpdate = () =>{
     const [counter, setCounter] = useState(0)
 
     
-    const getFood = async()=>{
-        await axios.get('http://localhost:6969/food').then((result)=>{
-            console.log("It gets all of the columns")
-            console.log("This is the result: ", result)
-            setFoods(result.data)
-            console.log("The size of the food is; ",result.data.length)
-            setCounter(result.data.length)
-        })
-    }
-
+    // const getFood = async()=>{
+    //     await axios.get('http://localhost:6969/food').then((result)=>{
+    //         console.log("It gets all of the columns")
+    //         console.log("This is the result: ", result)
+    //         setFoods(result.data)
+    //         console.log("The size of the food is; ",result.data.length)
+    //         setCounter(result.data.length)
+    //     })
+    // }
+    useEffect(() => {
+        const getFood = async()=>{
+            await axios.get('http://localhost:6969/food').then((result)=>{
+                console.log("It gets all of the columns")
+                console.log("This is the result: ", result)
+                setFoods(result.data)
+                console.log("The size of the food is; ",result.data.length)
+                setCounter(result.data.length)
+            })
+        }
+        getFood()
+      }, [foods])
    
 
     const update=async(theFoodId,theFoodItem,thePrice,theSupplies,theimage)=>{
@@ -79,7 +90,7 @@ const FoodUpdate = () =>{
 
     const displayTable = ()=>{
        
-        getFood();
+        //getFood();
         return(
             
             <><table>

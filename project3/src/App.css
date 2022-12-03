@@ -3,14 +3,6 @@ body {
 	font-family: Tahoma, sans-serif;
 }
 
-.button1 {
-	background-color: #4CAF50;
-} /* Green */
-
-.button2 {
-	background-color: #008CBA;
-} /* Blue */
-
 .textarea {
 	background-color: #ba5700;
 	width: 500px;
@@ -51,12 +43,18 @@ a {
 
 .goog-logo-link {
 	display:none !important;
-  } 
-	
+} 
+
 .goog-te-gadget{
 	color: transparent !important;
-	height: 20px !important; width: 148px !important; overflow: hidden !important; 
+	height: 35px !important; width: 220px !important; overflow: hidden !important; 
 }
+
+.goog-te-gadget .goog-te-combo {
+/* color: blue !important; */  /* change language color */
+	font-size: 16pt;
+}
+
 
 /* eliminate banner google translate */
 .goog-te-banner-frame.skiptranslate {
@@ -65,23 +63,11 @@ a {
 }
 
 .l {
-	justify-content: center;
 	display: flex;
-	align-items: center;
-	flex-direction: column; 
 	margin-top: 10px;
-	/* display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-style: solid;
-	justify-content: center; */
-}
-#btnGoogleLogin {
-	margin-left: 8vw;
-}
-
-#loginControl {
-	margin-top: 10vw;
+	justify-content: center;
 }
 
 .login-text {

@@ -78,46 +78,48 @@ function App (){
   };
 
   return (
-    
-    <div class="login">
-      <div class="l">
-        <div id="google_translate_element"></div>
-        <div id="loginControl">
-          <p class="login-text">
-            <h1>Chick-Fil-A Login</h1>
-          </p>
+    <>
+      <div id="google_translate_element"></div>
+      <div class="login">
+        <div class="l">
+      
+          <div id="loginControl">
+            <p class="login-text">
+              <h1>Chick-Fil-A Login</h1>
+            </p>
+          </div>
         
-        <div id="btnGoogleLogin">
-          <GoogleLogin      
-              clientId={clientId}
-              buttonText="Sign in"
-              onSuccess={onSuccess}
-              onFailure={onFailure}
-              cookiePolicy={'single_host_origin'}
-              isSignedIn={true}
-          />
+          <div id="btnGoogleLogin">
+            <GoogleLogin      
+                clientId={clientId}
+                buttonText="Sign in"
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={'single_host_origin'}
+                isSignedIn={true}
+            />
+          </div>
         </div>
-        </div>
-      </div>
 
-      <div id="btnGoogleLogout">
-        <GoogleLogout clientId={clientId} 
-        buttonText="Log out" onLogoutSuccess={logOut}
-        />
-      </div>
+  <div id="btnGoogleLogout" hidden="true">
+    <GoogleLogout clientId={clientId} 
+    buttonText="Log out" onLogoutSuccess={logOut}
+    />
+  </div>
 
-      <div id="btnManager" hidden="true">
-        <Manager/>
-      </div>
+  <div id="btnManager" hidden="true">
+    <Manager/>
+  </div>
 
-      <div id="btnServer" hidden="true">
-        <Server/>
-      </div>
+  <div id="btnServer" hidden="true">
+    <Server/>
+  </div>
 
-      <div id="btnCustomer" hidden="true">
-        <Customer/>
-      </div>
-    </div>
-  );
+  <div id="btnCustomer" hidden="true">
+    <Customer/>
+  </div>
+</div>
+  </>
+);
 }
 export default App;

@@ -145,6 +145,10 @@ return(
       <button onClick = {()=> finalResult()} class="reddy">Submit</button>
     {/* </div> */}
     
+    <input type="date" onChange={change1} value = {startdate} min={startdate} max="2022-12-31"/>
+    <input type="date" onChange={change2} value = {enddate}/>
+    
+    
     {displayTable()}
     </>
 

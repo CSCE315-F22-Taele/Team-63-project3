@@ -91,8 +91,8 @@ const Salesreport = () =>{
               <button><Link to ="/manager/excessreport">Excess Report</Link></button>
             </ul> */}
             </body>
-            <input onChange={change1} value = {startdate}/>
-            <input onChange={change2} value = {enddate}/>
+            <input type="date" onChange={change1} value = {startdate}/>
+            <input type="date" onChange={change2} value = {enddate}/>
             <button onClick = {()=>{finalResult()}}>Submit</button>
             {displayTable()}
         </div>

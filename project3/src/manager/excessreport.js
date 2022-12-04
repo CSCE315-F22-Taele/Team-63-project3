@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom';
+import './excessreport.css';
 
 function ExcessReport(){
 const [startdate, setStartDate] = useState('2022-10-02')
@@ -126,9 +127,18 @@ return(
             <button><Link to="/manager">Ordering System</Link></button>
             <button><Link to="/manager/salesreport">Sales Report</Link></button>
         </ul> */}
-    </body><h1>This excess report</h1>
+    </body>
+    
+    
+    <h1 class="intro">excess report</h1>
+    
+    
+    
+    
     <input onChange={change1} value = {startdate}/>
     <input onChange={change2} value = {enddate}/>
+    
+    
     <button onClick = {()=> finalResult()}>Submit</button>
     {displayTable()}
     

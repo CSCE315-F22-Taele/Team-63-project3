@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom';
 import Manager from '../manager';
+import './saleReport.css';
 
 const Salesreport = () =>{
     const [startdate,setStartDate] = useState('2022-10-03');
@@ -47,16 +48,16 @@ const Salesreport = () =>{
         
           return(
             <><table>
-                <thread>
+                <thread class = "amongsus">
                   <tr>
                     <th>Order ID</th>
                     <th>Food ID</th>
-                    <th>quantity</th>
+                    <th>Quantity</th>
                     <th>Order Date</th>
-                    <th>amount</th>
+                    <th>Amount</th>
                   </tr>
                 </thread>
-                <tbody>
+                <tbody class = "pabloemilioescobargaviria">
                   {tables.map((item) => (
                     <tr>
                       <td>{item.orderid}</td>
@@ -84,7 +85,7 @@ const Salesreport = () =>{
         <div>
             <body>
             
-            <h1>This is the sales report tab</h1>
+            <h1>Sales Report</h1>
             {/* <ul>
               <button><Link to = "/manager">Ordering System</Link></button>
               <button><Link to ="/manager/excessreport">Excess Report</Link></button>

@@ -135,8 +135,8 @@ return(
     
     
     
-    <input type="date" onChange={change1} value = {startdate} min={startdate} max="2022-12-31"/>
-    <input type="date" onChange={change2} value = {enddate}/>
+    <input type="date" onChange={change1} value = {startdate} min="2022-10-02" max="2022-12-31"/>
+    <input type="date" onChange={change2} value = {enddate} min="2022-10-02" max="2022-12-31"/>
     
     
     <button onClick = {()=> finalResult()}>Submit</button>

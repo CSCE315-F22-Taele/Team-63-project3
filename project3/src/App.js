@@ -101,11 +101,11 @@ function App (){
           </div>
         </div>
 
-  <div id="btnGoogleLogout" hidden="true">
+  {/* <div id="btnGoogleLogout" hidden="true">
     <GoogleLogout clientId={clientId} 
     buttonText="Log out" onLogoutSuccess={logOut}
     />
-  </div>
+  </div> */}
 
   <div id="btnManager" hidden="true">
     <Manager/>

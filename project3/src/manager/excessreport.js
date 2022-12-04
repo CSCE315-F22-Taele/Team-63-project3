@@ -90,6 +90,7 @@ const isExcess = async()=>{
 const displayTable = () => {
   
       return(
+       
         <><table>
             <thread>
               <tr>
@@ -134,14 +135,21 @@ return(
     
     
     
+    <div class ="input">
+    <input onChange={change1} value = {startdate}/>
+    
+    
+    <input onChange={change2} value = {enddate}/>
+    </div>
+    {/* <div class="buttons"> */}
+      <button onClick = {()=> finalResult()} class="reddy">Submit</button>
+    {/* </div> */}
     
     <input type="date" onChange={change1} value = {startdate} min="2022-10-02" max="2022-12-31"/>
     <input type="date" onChange={change2} value = {enddate} min="2022-10-02" max="2022-12-31"/>
     
     
-    <button onClick = {()=> finalResult()}>Submit</button>
     {displayTable()}
-    
     </>
 
 )

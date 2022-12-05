@@ -45,8 +45,23 @@ input {
 th {
 	text-align: center;
 }
-/* 
-table {
-	width: 50%;
-} */
+
+.startDate, .endDate {
+    font-size: 15px;
+    height: 45px;
+}
+
+.start {
+    float: left;
+	margin-left: 35px;
+}
+
+.end {
+	float: left;
+	margin-left: 65px;
+}
+
+.dateHeader {
+	display: inline-block;
+}
 

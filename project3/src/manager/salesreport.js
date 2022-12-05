@@ -94,9 +94,15 @@ const Salesreport = () =>{
               <button><Link to ="/manager/excessreport">Excess Report</Link></button>
             </ul> */}
             </body>
-            <input type="date" onChange={change1} value = {startdate}/>
-            <input type="date" onChange={change2} value = {enddate}/>
+            <div class="dateHeader">
+              <h3 class="start">Start</h3>
+              <h3 class="end">End</h3>
+            </div>
+            <div>
+            <input type="date" onChange={change1} value = {startdate} class="startDate"/>
+            <input type="date" onChange={change2} value = {enddate} class="endDate"/>
             <button onClick = {()=>finalResult()} class="reddy">Submit</button>
+            </div>
             {displayTable()}
         </div>
         </>

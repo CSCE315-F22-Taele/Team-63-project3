@@ -133,11 +133,15 @@ return(
     
     <h1 class="intro">Excess Report</h1>
     
-    
-    
-      <input type="date" onChange={change1} value = {startdate} min="2022-10-02" max="2022-12-31"/>
-      <input type="date" onChange={change2} value = {enddate} min="2022-10-02" max="2022-12-31"/>
+      <div class="dateHeader">
+        <h3 class="start">Start</h3>
+        <h3 class="end">End</h3>
+      </div>
+      <div>
+      <input type="date" onChange={change1} value = {startdate} min="2022-10-02" max="2022-12-31" class="startDate"/>
+      <input type="date" onChange={change2} value = {enddate} min="2022-10-02" max="2022-12-31" class="endDate"/>
       <button onClick = {()=> finalResult()} class="reddy">Submit</button>
+      </div>
     
     
     {displayTable()}

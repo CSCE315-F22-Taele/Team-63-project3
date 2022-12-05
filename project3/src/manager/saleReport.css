@@ -60,3 +60,17 @@ th, td {
     padding: 15px;
     width: 20%;
 }
+
+.start {
+    float: left;
+	margin-left: 35px;
+}
+
+.end {
+	float: left;
+	margin-left: 65px;
+}
+
+.dateHeader {
+	display: inline-block;
+}

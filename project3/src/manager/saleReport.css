@@ -36,6 +36,11 @@ table {
     text-align: center;
 }
 
+.intro {
+	text-align: center;
+	font-size: 50px;
+}
+
 .reddy {
 	/* margin-right: 25%; */
 	background-color: #E51636; /* Green */

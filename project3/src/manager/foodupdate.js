@@ -128,7 +128,7 @@ const FoodUpdate = () =>{
     return(
         <><body>
            
-            <h1>This is the foodupdate tab</h1>
+            <h1 class="intro">Update Menu</h1>
             {/* <ul>
                 <button><Link to="/manager">Ordering System</Link></button>
                 <button><Link to="/manager/salesreport">Sales Report</Link></button>

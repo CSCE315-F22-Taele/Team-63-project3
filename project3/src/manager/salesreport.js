@@ -88,7 +88,7 @@ const Salesreport = () =>{
         <div>
             <body>
             
-            <h1>Sales Report</h1>
+            <h1 class="intro">Sales Report</h1>
             {/* <ul>
               <button><Link to = "/manager">Ordering System</Link></button>
               <button><Link to ="/manager/excessreport">Excess Report</Link></button>

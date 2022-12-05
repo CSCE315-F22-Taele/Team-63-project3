@@ -40,9 +40,8 @@ function Server() {
         </div>
         
       </nav>
-          <h1>Welcome to Chick-Fil-A</h1>
-            <h1>This is the Server tab</h1>
-            <img src='chick.jpg' alt = "chick fila logo" />
+          
+            <h1 class="intro">Server</h1>
             
           <Receipt></Receipt>
       </body>

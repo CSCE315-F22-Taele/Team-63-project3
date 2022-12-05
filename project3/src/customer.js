@@ -51,8 +51,7 @@ function Customer() {
         <Route exact path = "/googlemap" element={<MapFront/>}/>
       </Routes>
       <div class="customer-body">
-          <h1>Welcome to Chick-Fil-A</h1>
-            <h1>This is the customer tab</h1>
+          <h1 class="intro">Welcome to Chick-Fil-A!</h1>
           <Receipt></Receipt>
       </div>
     </>

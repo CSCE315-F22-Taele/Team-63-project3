@@ -41,6 +41,9 @@ a {
 	margin: 8px;
 }
 
+a:active {
+	background: blue;
+}
 .goog-logo-link {
 	display:none !important;
 } 

@@ -98,11 +98,13 @@ const Receipt = () =>{
   //return the html of what we created
   return(
     <>
+    
       <div class="customer">
         <div class="menuButtons">
           {displayButtons()}
         </div>
         <div class="receipt">
+          <h3 class="receiptHeader">Receipt</h3>
           <h3>Your total Price is: <span translate="no">{price.toFixed(2)}</span></h3>
           {displayItems}
           <button onClick = {ordering} class="submit-order">Submit Order</button>

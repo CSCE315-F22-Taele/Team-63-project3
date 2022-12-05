@@ -47,28 +47,31 @@ const Salesreport = () =>{
     
         
           return(
-            <><table>
-                <thread class = "amongsus">
-                  <tr>
-                    <th>Order ID</th>
-                    <th>Food ID</th>
-                    <th>Quantity</th>
-                    <th>Order Date</th>
-                    <th>Amount</th>
-                  </tr>
-                </thread>
-                <tbody class = "pabloemilioescobargaviria">
-                  {tables.map((item) => (
-                    <tr>
-                      <td>{item.orderid}</td>
-                      <td>{item.foodid}</td>
-                      <td>{item.quantity}</td>
-                      <td>{item.orderdate}</td>
-                      <td>{item.amount}</td>
+            <>
+           
+              <table>
+                  
+                    <tr class="salesLabel">
+                      <th>Order ID</th>
+                      <th>Food ID</th>
+                      <th>Quantity</th>
+                      <th>Order Date</th>
+                      <th>Amount</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table></>
+                  
+                  <tbody class = "pabloemilioescobargaviria">
+                    {tables.map((item) => (
+                      <tr>
+                        <td>{item.orderid}</td>
+                        <td>{item.foodid}</td>
+                        <td>{item.quantity}</td>
+                        <td>{item.orderdate}</td>
+                        <td>{item.amount}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </>
           )
         
       }
@@ -93,7 +96,7 @@ const Salesreport = () =>{
             </body>
             <input type="date" onChange={change1} value = {startdate}/>
             <input type="date" onChange={change2} value = {enddate}/>
-            <button onClick = {()=>{finalResult()}}>Submit</button>
+            <button onClick = {()=>finalResult()} class="reddy">Submit</button>
             {displayTable()}
         </div>
         </>

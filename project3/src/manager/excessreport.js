@@ -91,12 +91,12 @@ const displayTable = () => {
   
       return(
        
-        <><table>
-            <thread>
+        <><table id="excessTable">
+            {/* <thread> */}
               <tr>
                 <th>Food ID</th>
               </tr>
-            </thread>
+            {/* </thread> */}
             <tbody>
               {excess.map((item) => (
                 <tr>
@@ -135,13 +135,9 @@ return(
     
     
     
-    <div class ="input">
       <input type="date" onChange={change1} value = {startdate} min="2022-10-02" max="2022-12-31"/>
       <input type="date" onChange={change2} value = {enddate} min="2022-10-02" max="2022-12-31"/>
-    </div>
-    {/* <div class="buttons"> */}
       <button onClick = {()=> finalResult()} class="reddy">Submit</button>
-    {/* </div> */}
     
     
     {displayTable()}

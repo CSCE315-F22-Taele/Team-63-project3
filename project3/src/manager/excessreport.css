@@ -15,8 +15,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 	text-transform: uppercase;
 	padding-bottom: 5px;
 	color: #E51636;
-	
-	
 }
 
 input {
@@ -27,6 +25,11 @@ input {
 	float: center;
 }
 
+#excessTable {
+	width: 50%;
+	margin-left: auto; 
+  	margin-right: auto
+}
 .reddy {
 	/* margin-right: 25%; */
 	background-color: #E51636; /* Green */
@@ -39,6 +42,13 @@ input {
 	text-transform: uppercase;
 	display: inline-block;
 	font-size: 16px;
-
 }
+
+th {
+	text-align: center;
+}
+/* 
+table {
+	width: 50%;
+} */
 

@@ -94,7 +94,7 @@ const FoodUpdate = () =>{
         return(
             
             <><table>
-                <thread>
+                {/* <thread> */}
                   <tr>
                     <th>Food ID</th>
                     <th>Food Item</th>
@@ -102,7 +102,7 @@ const FoodUpdate = () =>{
                     <th>Supplies</th>
                     <th>Food Image</th>
                   </tr>
-                </thread>
+                {/* </thread> */}
                 <tbody>
                   {foods.map((item) => (
                     <tr>

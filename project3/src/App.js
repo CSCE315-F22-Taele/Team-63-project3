@@ -9,7 +9,6 @@ import roles from './roles.json';
 import './App.css';
 
 function App (){
-  
   const [ profile, setProfile ] = useState([]);
   const clientId = '7130970063-8l4ukqnaa0o24aiklhbbb8vbo8rpos8a.apps.googleusercontent.com';
   const googleTranslateElementInit = () => {
@@ -32,7 +31,6 @@ function App (){
   }, [])
 
   const onSuccess = (res) => {
-    
     setProfile(res.profileObj);
     const config = roles.find(item => item.email === res.profileObj.email);
     
@@ -78,9 +76,10 @@ function App (){
   };
 
   return (
-    <>
+      <>
       <div id="google_translate_element"></div>
       <div class="login">
+     
         <div class="l">
       
           <div id="loginControl">
@@ -100,12 +99,9 @@ function App (){
             />
           </div>
         </div>
+        
 
-  {/* <div id="btnGoogleLogout" hidden="true">
-    <GoogleLogout clientId={clientId} 
-    buttonText="Log out" onLogoutSuccess={logOut}
-    />
-  </div> */}
+  
 
   <div id="btnManager" hidden="true">
     <Manager/>

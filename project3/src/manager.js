@@ -49,7 +49,7 @@ function Manager() {
             <a href="/"><img src="/cfa-logo.png" width="50" height="50"></img></a>
             <div class="more-header">
               <a href="/App">Home</a>
-              <a href="/manager/salesreport" class="highlighted">Sales Report</a>
+              <a href="/manager/salesreport">Sales Report</a>
               <a href="/manager/excessreport">Excess Report</a>
               <a href="/manager/foodUpdate">Food Update</a>
               <GoogleLogout clientId={clientId} 

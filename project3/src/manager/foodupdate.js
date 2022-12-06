@@ -120,10 +120,12 @@ const FoodUpdate = () =>{
     function now(){
         update(theFoodId,theFoodItem,thePrice,theSupplies,theimage);
         displayTable();
+        alert("Submitted!")
     }
     function plusFood(){
         addLeFood(counter,theFoodItem,thePrice,theSupplies,theimage);
         displayTable();
+        alert("Submitted!")
     }
     return(
         <><body>

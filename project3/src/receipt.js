@@ -84,6 +84,7 @@ const Receipt = () =>{
 
   //This allows us to push everything into the order table in the data base and reset everything
   const ordering = () =>{
+    alert("Order submitted");
     for(var i = 0; i < message.length; ++i){
       console.log(orderId,message[i].foodid,1,orderId,message[i].price);
       pushOrder(orderId,message[i].foodid,1,orderdt,message[i].price);

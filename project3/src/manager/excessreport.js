@@ -111,10 +111,12 @@ const displayTable = () => {
 
   function finalResult(){
     console.log("This is the start date: ",startdate);
-    console.log("This is the enddate: ",enddate);
+    console.log("This is the enddate: ",enddate);  
+    
     callApiStart(startdate);
     callApiEnd(enddate);
     isExcess();
+    alert("Submitted!")
     // console.log("This is the array for start: ",starts);
     // console.log("This is the array for the end: ", ends);
     displayTable();

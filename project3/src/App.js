@@ -10,7 +10,7 @@ import roles from './roles.json';
 import './App.css';
 
 /**
- * The only true button.
+ * handles translate, homepage across all users, and login
  *
  * @version 1.0.1
  * @author Anna Huang

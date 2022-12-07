@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import './excessreport.css';
 
 function ExcessReport(){
+  // Variables to be used in code
 const [startdate, setStartDate] = useState('2022-10-02')
 const [enddate, setEndDate] = useState('2022-10-03')
 const[columns, setColumns] = useState([])
@@ -12,6 +13,7 @@ const[ends, setEnds] = useState([])
 const[excess,setExcess] = useState([])
 
 useEffect(() => {
+  // Retrieve the columns from the excess database
     const getColumns = async()=>{
         await axios.get('http://localhost:6969/column').then((result)=>{
             // console.log("It gets all of the columns")
@@ -21,17 +23,19 @@ useEffect(() => {
     getColumns()
   },[]);
 //   console.log("This is all of the columns in the system: ", columns)
+// Change the start date of sales report
   const change1 = event =>{
     setStartDate(event.target.value)
     console.log(startdate)
   }
 
+  // Change the end date of sales report
   const change2 = event =>{
     setEndDate(event.target.value)
     console.log(enddate)
   }
 
-
+  // Getting the data from the database based on start and end date input
   const callApiStart = async (startdate) =>{
     //Object.values(temp1[0])[0]
     await axios.get(`http://localhost:6969/supplydatestart/${startdate}`).then((result) => {
@@ -49,7 +53,7 @@ useEffect(() => {
   }
     
 
-
+// Add retrieved data into a list
 const callApiEnd = async (enddate) =>{ 
     await axios.get(`http://localhost:6969/supplydateend/${enddate}`).then((result) => {
       
@@ -66,6 +70,7 @@ const callApiEnd = async (enddate) =>{
     });
 }
 
+// 
 const isExcess = async()=>{
    console.log("This is starts: ",starts)
     console.log("This is ends: ",ends)
@@ -87,6 +92,7 @@ const isExcess = async()=>{
     setExcess(new_list)
 }
 
+// Display table to user, return HTML code for excess report TABLE
 const displayTable = () => {
   
       return(
@@ -109,6 +115,7 @@ const displayTable = () => {
     
   }
 
+  // Code that is used to process and handle functions in an excess report call
   function finalResult(){
     console.log("This is the start date: ",startdate);
     console.log("This is the enddate: ",enddate);  
@@ -127,6 +134,7 @@ const displayTable = () => {
   }
   
 
+  // Return HTML code for the excess report
 return(
     <><body>
         

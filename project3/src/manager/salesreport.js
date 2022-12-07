@@ -5,12 +5,14 @@ import Manager from '../manager';
 import './saleReport.css';
 
 const Salesreport = () =>{
+    // Variables in constant use throughout program
     const [startdate,setStartDate] = useState('2022-10-03');
     const [enddate, setEndDate] = useState('2022-10-04');
     console.log(startdate)
     console.log(enddate)
     const [tables, setTable] = useState([])
 
+    // Call API to get table from database
     const callApi = async (startdate,enddate) =>{
         await axios.get(`http://localhost:6969/certainorder/${startdate}/${enddate}`).then((result) => {
             console.log("It has succesfully got through the query")
@@ -19,18 +21,20 @@ const Salesreport = () =>{
         });
     }
       
-
+    // Change start date
       const change1 = event =>{
         setStartDate(event.target.value)
         console.log(startdate)
       }
 
+      // Change end date
       const change2 = event =>{
         setEndDate(event.target.value)
         console.log(enddate)
                
       }
 
+      // Return HTML code for the sales report TABLE
       const displayTable = () => {
         // getAllvalue()
         // callApi()
@@ -76,6 +80,7 @@ const Salesreport = () =>{
         
       }
 
+      // Function that is used to call all functions when sales report wants to be generated
       function finalResult(){
         console.log("This is the start date: ",startdate)
         console.log("This is the enddate: ",enddate)
@@ -88,6 +93,7 @@ const Salesreport = () =>{
         alert("Submitted!")
       }
 
+      // Return HTML code for sales report webpage
       return(<>
 
         <div>

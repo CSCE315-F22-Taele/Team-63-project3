@@ -16,6 +16,7 @@ import {useState} from 'react';
 //import LogIn from './OAuth/oafront.js'
 
 function Manager() {
+  // Set up Google OAuth code
   const [ profile, setProfile ] = useState([]);
   const clientId = '7130970063-8l4ukqnaa0o24aiklhbbb8vbo8rpos8a.apps.googleusercontent.com';
   useEffect(() => {
@@ -31,6 +32,7 @@ function Manager() {
     // document.body.appendChild(addScript);
     // window.googleTranslateElementInit = googleTranslateElementInit;
   }, [])
+  // Hide buttons if manager logs out
     const logOut = () => {
         setProfile(null);
         document.getElementById("loginControl").hidden=false;
@@ -42,6 +44,7 @@ function Manager() {
         document.getElementById("btnServer").hidden=true;
         document.getElementById("btnCustomer").hidden=true;
       };
+  // Return HTML code for the manager side, including routes for manager tools
   return (
     <>
       <body>

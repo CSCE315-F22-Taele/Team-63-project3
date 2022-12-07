@@ -48,6 +48,8 @@ const Receipt = () =>{
     //console.log("MESSAGE: ")
     //console.log(message)
     for (let i = 0; i < message.length; i++) {
+      console.log(i,message[i].foodid,item.foodid)
+      console.log()
       if (message[i].foodid === item.foodid && eliminated === false) {
         console.log("YUH")
         eliminated = true

@@ -1,3 +1,4 @@
+// Call a bunch of imports
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
@@ -38,6 +39,7 @@ function App (){
     window.googleTranslateElementInit = googleTranslateElementInit;
   }, [])
 
+  // Assign roles if login is a success
   const onSuccess = (res) => {
     setProfile(res.profileObj);
     const config = roles.find(item => item.email === res.profileObj.email);
@@ -67,11 +69,12 @@ function App (){
     document.getElementById("btnGoogleLogout").hidden=false;
   };
 
-
+  // Tell in the log if login failed
   const onFailure = (err) => {
     console.log('Login in failed', err);
   };
 
+  // Hide pages from user if they log out
   const logOut = () => {
     setProfile(null);
     document.getElementById("loginControl").hidden=false;
@@ -83,6 +86,7 @@ function App (){
     document.getElementById("btnCustomer").hidden=true;
   };
 
+  // Return the HTML code for Google Translate and OAuth API
   return (
       <>
       <div id="google_translate_element"></div>

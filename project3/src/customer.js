@@ -10,7 +10,13 @@ import { gapi } from 'gapi-script';
 
 
 //import LogIn from './OAuth/oafront.js'
-
+/**
+ * handles customer page, showing the ordering system and google maps
+ *
+ * @version 1.0.1
+ * @author Anna Huang
+ * @author John Liu
+ */
 function Customer() {
   // Code for Google Oauth
   const [ profile, setProfile ] = useState([]);

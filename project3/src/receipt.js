@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import './receipt.css';
 
 const Receipt = () =>{
-  //all the variable we need to use
+  // Constant variables that will be consistently used in the receipt page
   const [message, setMessage] = useState([]); //This is the order receipt of all the item
   const [listOfBts, setListOfBits] = useState([]) //This is for all the list of buttons
   const [price, setPrice] = useState(0) //setting the total price of the order
@@ -41,12 +41,11 @@ const Receipt = () =>{
     setPrice(price + item.price)
   }
 
+  // upon clicking an item in the receipt, it removes the item from the list/html
   const removeItem = (item) => {
     const new_list = []
     let eliminated = false
     let price = 0
-    //console.log("MESSAGE: ")
-    //console.log(message)
     for (let i = 0; i < message.length; i++) {
       console.log(i,message[i].foodid,item.foodid)
       console.log()
@@ -128,7 +127,7 @@ const Receipt = () =>{
         </div>
         <div class="receipt">
           <h3 class="receiptHeader">Receipt</h3>
-          <h3>Your total Price is: <span translate="no">{price.toFixed(2)}</span></h3>
+          <h3>Your Total Price Is: <span translate="no">{price.toFixed(2)}</span></h3>
           {displayItems}
           <button onClick = {ordering} class="submit-order">Submit Order</button>
         </div>

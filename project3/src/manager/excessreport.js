@@ -3,6 +3,16 @@ import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom';
 import './excessreport.css';
 
+/**
+ * This is the excess report for the manager tab. We ported over the logic from Project 2.
+ * The sales report essentially allows the manager to enter the start and end date. Then they can see how many food items were sold.
+ *
+ * @author John Liu
+ * @author Luis Martinez Morales
+ * @author Anna Huang
+ * @author Akhil Mathew
+ */
+
 function ExcessReport(){
   // Variables to be used in code
 const [startdate, setStartDate] = useState('2022-10-02')

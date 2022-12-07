@@ -1,3 +1,9 @@
+/**
+ * Has the google maps functionality so that the customers can find the closest chick fil a store from their current location
+ * @version 1.0.1
+ * @author John Liu
+ */
+
 import React from 'react';
 import { GoogleMap, LoadScript,MarkerF } from '@react-google-maps/api';
 const MapFront = () => {

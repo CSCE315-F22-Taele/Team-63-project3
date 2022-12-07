@@ -7,7 +7,7 @@ const Receipt = () =>{
   const [message, setMessage] = useState([]); //This is the order receipt of all the item
   const [listOfBts, setListOfBits] = useState([]) //This is for all the list of buttons
   const [price, setPrice] = useState(0) //setting the total price of the order
-  const [orderId, setOrderId] = useState(501);//This is for the order id
+  const [orderId, setOrderId] = useState(2023);//This is for the order id
   //creating the date
   var today = new Date();
   var day = String(today.getDate()).padStart(2, '0');
@@ -15,13 +15,13 @@ const Receipt = () =>{
   var year = today.getFullYear();
 
   var orderdt = year + '-' + month + '-' + day;
-  console.log(orderdt)
+  // console.log(orderdt)
   
   //getting all the items in the food table to the listOfBts
   useEffect(() => {
     const callApi = async () =>{
       await axios.get("http://localhost:6969/food").then((result) => {
-        console.log(result.data)
+        // console.log(result.data)
         setListOfBits(result.data)
       });
     }
@@ -29,8 +29,8 @@ const Receipt = () =>{
   }, [listOfBts])
 
   //This is for error checking
-  console.log("Is this even working and that is the question?")
-  console.log(listOfBts);
+  //console.log("Is this even working and that is the question?")
+  //console.log(listOfBts);
  
   //when you add new item into the order receipt 
   const addItem = (item) => {
@@ -41,15 +41,26 @@ const Receipt = () =>{
     setPrice(price + item.price)
   }
 
-  /*const removeItem = (item) => {
+  const removeItem = (item) => {
     const new_list = []
     let eliminated = false
+    let price = 0
+    //console.log("MESSAGE: ")
+    //console.log(message)
     for (let i = 0; i < message.length; i++) {
       if (message[i].foodid === item.foodid && eliminated === false) {
+        console.log("YUH")
         eliminated = true
-      } 
+      } else {
+        new_list.push(message[i])
+        price += message[i].price
+      }
     }
-  }*/
+    console.log("NEW MESSAGE")
+    console.log(new_list)
+    setMessage(new_list)
+    setPrice(price)
+  }
 
   //display to button 
   const displayButtons = () => {
@@ -71,7 +82,7 @@ const Receipt = () =>{
 
   //show all the things that you ordered
   const displayItems = message.map(item => {
-      return <li key = {item.fooditem} onClick>{item.fooditem}: {item.price}</li>
+      return <li key = {item.fooditem} onClick = {() => removeItem(item)}>{item.fooditem}: {item.price}</li>
   })
 
   //This is the function call for us to push the order into the backend

@@ -4,6 +4,15 @@ import {Link} from 'react-router-dom';
 import Manager from '../manager';
 import './saleReport.css';
 
+/**
+ * This is the JavaScript file responsible for the sales report from the manager. 
+ * This is the same functionality that we implemented in project 2.
+ * 
+ * @author John Liu
+ * @author Luis Martinez Morales
+ * @author Akhil Mathew
+ * @author Anna Huang
+ */
 const Salesreport = () =>{
     // Variables in constant use throughout program
     const [startdate,setStartDate] = useState('2022-10-03');

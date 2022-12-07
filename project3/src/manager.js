@@ -14,7 +14,13 @@ import {useState} from 'react';
 
 
 //import LogIn from './OAuth/oafront.js'
-
+/**
+ * handles manager page, showing the ordering system, excess report, sales report, and food update
+ *
+ * @version 1.0.1
+ * @author Anna Huang
+ * @author John Liu
+ */
 function Manager() {
   // Set up Google OAuth code
   const [ profile, setProfile ] = useState([]);

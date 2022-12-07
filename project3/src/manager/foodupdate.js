@@ -8,7 +8,7 @@ const FoodUpdate = () =>{
     const [theFoodItem, setTheFoodItem] = useState("")
     const [thePrice, setThePrice] = useState(-1.00)
     const [theSupplies, setSupplies] = useState("")
-    const [theimage, setTheImage] = useState("")
+    const [theimage, setTheImage] = useState("/foodimg/cfa-logo.png")
     const [counter, setCounter] = useState(0)
 
     

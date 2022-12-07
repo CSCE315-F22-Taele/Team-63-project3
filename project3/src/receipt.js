@@ -41,6 +41,16 @@ const Receipt = () =>{
     setPrice(price + item.price)
   }
 
+  /*const removeItem = (item) => {
+    const new_list = []
+    let eliminated = false
+    for (let i = 0; i < message.length; i++) {
+      if (message[i].foodid === item.foodid && eliminated === false) {
+        eliminated = true
+      } 
+    }
+  }*/
+
   //display to button 
   const displayButtons = () => {
     if(listOfBts.length === 0){
@@ -61,7 +71,7 @@ const Receipt = () =>{
 
   //show all the things that you ordered
   const displayItems = message.map(item => {
-      return <li key = {item.fooditem}>{item.fooditem}: {item.price}</li>
+      return <li key = {item.fooditem} onClick>{item.fooditem}: {item.price}</li>
   })
 
   //This is the function call for us to push the order into the backend

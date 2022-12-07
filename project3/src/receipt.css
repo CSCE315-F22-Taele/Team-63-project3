@@ -103,3 +103,11 @@ h3 {
 .receiptHeader {
 	font-size: 30px;
 }
+
+li {
+	list-style-type: none;
+}
+
+li:hover {
+	text-decoration: underline;
+}

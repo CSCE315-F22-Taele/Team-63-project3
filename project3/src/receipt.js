@@ -2,6 +2,15 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import './receipt.css';
 
+
+/**
+ * This is used to display the receipt of the customer's order and completes the functionality for it.
+ * @version 1.0.4
+ * @author Luis Martinez Morales
+ * @author John Liu
+ * @author Eric Nunes
+ */
+
 const Receipt = () =>{
   // Constant variables that will be consistently used in the receipt page
   const [message, setMessage] = useState([]); //This is the order receipt of all the item

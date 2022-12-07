@@ -15,6 +15,7 @@ import './App.css';
  * @version 1.0.1
  * @author Anna Huang
  * @author Eric Nunes
+ * @author John Liu
  */
 
 function App (){

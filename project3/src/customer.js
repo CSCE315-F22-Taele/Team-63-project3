@@ -16,6 +16,7 @@ import { gapi } from 'gapi-script';
  * @version 1.0.1
  * @author Anna Huang
  * @author John Liu
+ * @author Akhil Mathew
  */
 function Customer() {
   // Code for Google Oauth

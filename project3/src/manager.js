@@ -21,6 +21,8 @@ import {useState} from 'react';
  * @author Anna Huang
  * @author John Liu
  * @author Akhil Mathew
+ * @author Luis Martinez Morales
+ * @author Eric Nunes
  */
 function Manager() {
   // Set up Google OAuth code

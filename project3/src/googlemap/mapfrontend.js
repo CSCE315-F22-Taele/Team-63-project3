@@ -10,6 +10,7 @@ const MapFront = () => {
     lat: 30.612030, lng: -96.3409
   }
 
+  // Return HTML Code for Google Maps API
   return (
     <>
      <LoadScript

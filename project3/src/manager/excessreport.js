@@ -116,6 +116,10 @@ const displayTable = () => {
     callApiStart(startdate);
     callApiEnd(enddate);
     isExcess();
+    if (startdate.localeCompare(enddate) > 0) {
+      alert("End date should be after start date");
+      return;
+    }
     alert("Submitted!")
     // console.log("This is the array for start: ",starts);
     // console.log("This is the array for the end: ", ends);

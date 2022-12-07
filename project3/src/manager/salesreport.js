@@ -79,10 +79,10 @@ const Salesreport = () =>{
       function finalResult(){
         console.log("This is the start date: ",startdate)
         console.log("This is the enddate: ",enddate)
-        // if (startdate.localeCompare(enddate) > 0) {
-        //   alert("End date should be after start date");
-        //   return;
-        // }
+        if (startdate.localeCompare(enddate) > 0) {
+          alert("End date should be after start date");
+          return;
+        }
         
         callApi(startdate,enddate)
         alert("Submitted!")

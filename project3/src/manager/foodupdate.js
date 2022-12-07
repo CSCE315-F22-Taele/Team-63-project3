@@ -2,6 +2,15 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom';
 
+/**
+ * The is the JavaScript file that takes care of the Food Table. We used HTML and CSS files for styling the table correctly.
+ * The manager is able to see the list, id, Name, Price, Supplies associated with food, and a counter for the food.
+ *
+ * @author John Liu
+ * @author Luis Martinez Morales
+ * @author Anna Huang
+ * @author Eric Nunes
+ */
 const FoodUpdate = () =>{
     // Variables that will be used for the code
     const [foods,setFoods] = useState([])                   // list of foods

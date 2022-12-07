@@ -11,7 +11,6 @@ const Salesreport = () =>{
     console.log(enddate)
     const [tables, setTable] = useState([])
 
-
     const callApi = async (startdate,enddate) =>{
         await axios.get(`http://localhost:6969/certainorder/${startdate}/${enddate}`).then((result) => {
             console.log("It has succesfully got through the query")
@@ -29,6 +28,7 @@ const Salesreport = () =>{
       const change2 = event =>{
         setEndDate(event.target.value)
         console.log(enddate)
+               
       }
 
       const displayTable = () => {
@@ -79,8 +79,13 @@ const Salesreport = () =>{
       function finalResult(){
         console.log("This is the start date: ",startdate)
         console.log("This is the enddate: ",enddate)
+        if (startdate.localeCompare(enddate) > 0) {
+          alert("End date should be after start date");
+          return;
+        }
+        
         callApi(startdate,enddate)
-        // displayTable()
+        alert("Submitted!")
       }
 
       return(<>
@@ -89,6 +94,7 @@ const Salesreport = () =>{
             <body>
             
             <h1 class="intro">Sales Report</h1>
+            
             {/* <ul>
               <button><Link to = "/manager">Ordering System</Link></button>
               <button><Link to ="/manager/excessreport">Excess Report</Link></button>
@@ -99,9 +105,11 @@ const Salesreport = () =>{
               <h3 class="end">End</h3>
             </div>
             <div>
-            <input type="date" onChange={change1} value = {startdate} class="startDate"/>
-            <input type="date" onChange={change2} value = {enddate} class="endDate"/>
+            <input type="date" onChange={change1} value = {startdate} min="2022-10-02" max="2022-12-31" class="startDate"/>
+            <input type="date" onChange={change2} value = {enddate} min="2022-10-02" max="2022-12-31" class="endDate"/>
             <button onClick = {()=>finalResult()} class="reddy">Submit</button>
+            
+
             </div>
             {displayTable()}
         </div>

@@ -7,6 +7,13 @@ import {Route,Link} from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 
+/**
+ * This is the function for the server tab on the website
+ * @version 1.0.2
+ * @author Anna Huang
+ * @author Akhil Mathew
+ */
+
 function Server() {
   const [ profile, setProfile ] = useState([]);
   const clientId = '7130970063-8l4ukqnaa0o24aiklhbbb8vbo8rpos8a.apps.googleusercontent.com';

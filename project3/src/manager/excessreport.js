@@ -137,7 +137,6 @@ const displayTable = () => {
       alert("End date should be after start date");
       return;
     }
-    alert("Submitted!")
     // console.log("This is the array for start: ",starts);
     // console.log("This is the array for the end: ", ends);
     displayTable();
@@ -165,6 +164,7 @@ return(
       <input type="date" onChange={change1} value = {startdate} min="2022-10-02" max="2022-12-31" class="startDate"/>
       <input type="date" onChange={change2} value = {enddate} min="2022-10-02" max="2022-12-31" class="endDate"/>
       <button onClick = {()=> finalResult()} class="reddy">Submit</button>
+      
       </div>
     
     
